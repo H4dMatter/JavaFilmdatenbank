@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/Imdc.iml" filepath="$PROJECT_DIR$/Imdc.iml" />
+      <module fileurl="file://$PROJECT_DIR$/java-filmdatenbank.iml" filepath="$PROJECT_DIR$/java-filmdatenbank.iml" />
     </modules>
   </component>
 </project>
