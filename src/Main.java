@@ -1,9 +1,10 @@
+import java.util.ArrayList;
 import java.util.Scanner;
 import java.io.File;
 
 
 public class Main {
-    public Actor[] actors;
+    public static ArrayList<Actor> actors;
 
     public static void main(String[] args) {
 	    // write your code here
@@ -23,6 +24,13 @@ public class Main {
                 {
                  switch(section){
                      case 1:
+                         String parts[]=curLine.split("\",\"");
+
+                        /*     Actor actor= new Actor(Integer.parseInt(parts[0]),parts[1]);
+                             actors.add(actor);*/
+                         System.out.println(parts[0] + "    " + parts[1]);
+
+
                  }
                 }
             }
