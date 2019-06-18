@@ -1,6 +1,6 @@
 public class Actor {
     private String name;
-    private int id;
+    private Integer id;
     private Film[] films;
 
     public Actor(int id, String name){
@@ -16,7 +16,7 @@ public class Actor {
         this.name = name;
     }
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 }

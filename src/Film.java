@@ -1,8 +1,15 @@
+import java.util.ArrayList;
+
 public class Film {
     private int id;
     private String title;
     private String desc;
     private String releaseDate;
+    private float rating;
+    private int numRatings;
+    private String genre;
+    private ArrayList<Actor> cast= new ArrayList<>();
+    private Director[] directors;
 
     public int getId() {
         return id;
@@ -28,19 +35,22 @@ public class Film {
         return genre;
     }
 
-    public Actor[] getCast() {
+    public ArrayList<Actor> getCast() {
         return cast;
+    }
+
+    public void addActor(Actor actor) {
+        if (actor == null) return;
+        else {
+            this.cast.add(actor);
+        }
     }
 
     public Director[] getDirectors() {
         return directors;
     }
 
-    private float rating;
-    private int numRatings;
-    private String genre;
-    private Actor[] cast;
-    private Director[] directors;
+
 
     public Film(int id, String title, String description, String genre, String releaseDate, int numRatings, float rating){
         this.id=id;
