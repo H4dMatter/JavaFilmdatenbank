@@ -45,13 +45,15 @@ public class Main {
                          Director director = new Director(Integer.parseInt(parts[0]),parts[1]);
                          directors.add(director);
                          break;
+                     case 4: 
+
                  }
                 }
             }
             System.out.println("List of actors :" + actors);
             System.out.println("List of films :" + films);
             System.out.println("List of directors :" + directors);
-            System.out.println("Random film :" + films.get(100));
+            System.out.println("Random film :" + films.get(100).getTitle());
         }
         catch(Exception e){
             System.out.println(e);
