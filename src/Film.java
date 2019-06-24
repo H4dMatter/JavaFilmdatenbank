@@ -1,16 +1,20 @@
 import java.util.ArrayList;
+import java.util.Map;
+import java.util.TreeMap;
 
 public class Film {
     private int id;
     private String title;
     private String desc;
     private String releaseDate;
-    private float rating;
+    private float imdbRating;
     private int numRatings;
     private String genre;
     private ArrayList<Actor> cast= new ArrayList<>();
-    private Director[] directors;
+    private ArrayList<Director> directors=new ArrayList<>();
+    private TreeMap<Integer,Float> userRatings= new TreeMap<Integer,Float>();
 
+    //GETTER functions
     public int getId() {
         return id;
     }
@@ -28,7 +32,7 @@ public class Film {
     }
 
     public float getRating() {
-        return rating;
+        return imdbRating;
     }
 
     public String getGenre() {
@@ -39,27 +43,41 @@ public class Film {
         return cast;
     }
 
+    public ArrayList<Director> getDirectors() {
+        return directors;
+    }
+
+    public TreeMap<Integer, Float> getUserRatings() {
+        return userRatings;
+    }
+
+    //SETTER functions
     public void addActor(Actor actor) {
-        if (actor == null) return;
-        else {
+        if(actor!=null) {
             this.cast.add(actor);
         }
     }
 
-    public Director[] getDirectors() {
-        return directors;
+    public void addDirector(Director director) {
+        if(director!=null) {
+            this.directors.add(director);
+        }
+    }
+
+    public void addUserRating(Integer userId, float rating){
+        userRatings.put(userId,rating);
     }
 
 
 
-    public Film(int id, String title, String description, String genre, String releaseDate, int numRatings, float rating){
+    public Film(int id, String title, String description, String genre, String releaseDate, int numRatings, float imdbRating){
         this.id=id;
         this.title=title;
         this.desc=description;
         this.genre=genre;
         this.releaseDate=releaseDate;
         this.numRatings=numRatings;
-        this.rating=rating;
+        this.imdbRating=imdbRating;
 
     }
 }
