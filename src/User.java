@@ -4,13 +4,13 @@ import java.util.TreeMap;
 public class User {
     private String name;
     private int id;
-    private TreeMap<Integer,Float> ratings = new TreeMap<>();
+    private TreeMap<Integer, Float> ratings = new TreeMap<>();
 
 
-    public User(int userId, String name, Float rating, Integer movieId){
-        this.id=userId;
-        this.name=name;
-        this.ratings.put(movieId,rating);
+    public User(int userId, String name, Float rating, Integer movieId) {
+        this.id = userId;
+        this.name = name;
+        this.ratings.put(movieId, rating);
 
     }
 
@@ -31,8 +31,8 @@ public class User {
 
 
     //Methoden
-    public void rateFilm(int movieId, float rating){
-        this.ratings.put(movieId,rating);
+    public void rateFilm(int movieId, float rating) {
+        this.ratings.put(movieId, rating);
     }
 
 }

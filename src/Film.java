@@ -10,9 +10,9 @@ public class Film {
     private float imdbRating;
     private int numRatings;
     private String genre;
-    private ArrayList<Actor> cast= new ArrayList<>();
-    private ArrayList<Director> directors=new ArrayList<>();
-    private TreeMap<Integer,Float> userRatings= new TreeMap<Integer,Float>();
+    private ArrayList<Actor> cast = new ArrayList<>();
+    private ArrayList<Director> directors = new ArrayList<>();
+    private TreeMap<Integer, Float> userRatings = new TreeMap<Integer, Float>();
 
     //GETTER functions
     public int getId() {
@@ -53,31 +53,30 @@ public class Film {
 
     //SETTER functions
     public void addActor(Actor actor) {
-        if(actor!=null) {
+        if (actor != null) {
             this.cast.add(actor);
         }
     }
 
     public void addDirector(Director director) {
-        if(director!=null) {
+        if (director != null) {
             this.directors.add(director);
         }
     }
 
-    public void addUserRating(Integer userId, float rating){
-        userRatings.put(userId,rating);
+    public void addUserRating(Integer userId, float rating) {
+        userRatings.put(userId, rating);
     }
 
 
-
-    public Film(int id, String title, String description, String genre, String releaseDate, int numRatings, float imdbRating){
-        this.id=id;
-        this.title=title;
-        this.desc=description;
-        this.genre=genre;
-        this.releaseDate=releaseDate;
-        this.numRatings=numRatings;
-        this.imdbRating=imdbRating;
+    public Film(int id, String title, String description, String genre, String releaseDate, int numRatings, float imdbRating) {
+        this.id = id;
+        this.title = title;
+        this.desc = description;
+        this.genre = genre;
+        this.releaseDate = releaseDate;
+        this.numRatings = numRatings;
+        this.imdbRating = imdbRating;
 
     }
 }
