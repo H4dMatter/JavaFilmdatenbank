@@ -19,7 +19,7 @@ public class Actor {
     }
 
     public Integer getId() {
-        return id;
+        return this.id;
     }
 
     public ArrayList<Film> getFilms() {

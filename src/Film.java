@@ -16,7 +16,7 @@ public class Film {
 
     //GETTER functions
     public int getId() {
-        return id;
+        return this.id;
     }
 
     public String getTitle() {
