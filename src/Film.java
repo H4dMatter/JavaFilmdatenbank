@@ -10,9 +10,9 @@ public class Film {
     private float imdbRating;
     private int numRatings;
     private String genre;
-    private ArrayList<Actor> cast = new ArrayList<>();
-    private ArrayList<Director> directors = new ArrayList<>();
-    private TreeMap<Integer, Float> userRatings = new TreeMap<Integer, Float>();
+    private ArrayList<Actor> cast ;
+    private ArrayList<Director> directors ;
+    private TreeMap<Integer, Float> userRatings ;
 
     //GETTER functions
     public int getId() {
@@ -77,6 +77,8 @@ public class Film {
         this.releaseDate = releaseDate;
         this.numRatings = numRatings;
         this.imdbRating = imdbRating;
-
+        cast = new ArrayList<>();
+        directors = new ArrayList<>();
+        userRatings = new TreeMap<>();
     }
 }

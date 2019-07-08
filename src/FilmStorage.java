@@ -1,7 +1,8 @@
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.TreeMap;
 
-public class FilmStorage {
+public class FilmStorage implements Searchable {
     private TreeMap<Integer, Film> map;
 
      void addElement(Integer key, Film elem) {
@@ -24,10 +25,10 @@ public class FilmStorage {
         ArrayList<Film> foundElements = new ArrayList<>();
         map.forEach((id, elem) -> {
             if (elem.getTitle().contains(searchTerm)) {
-                //System.out.println("Found film " + film.getId() + " title: " + film.getTitle());
                 foundElements.add(elem);
             }
         });
+        foundElements.sort(Comparator.comparing(Film::getTitle));
         return foundElements;
     }
 

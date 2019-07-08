@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 public interface Searchable {
-    void search(String searchTerm);
+    ArrayList search(String searchTerm);
 }
