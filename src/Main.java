@@ -13,7 +13,7 @@ public class Main {
 
 
     public static void main(String[] args) {
-
+        Database db = new Database();
         int section = 0;
         int curUser = 0;
         String curUserName = "";
@@ -40,6 +40,7 @@ public class Main {
                     switch (section) {
                         case 1://New_Entity: "actor_id","actor_name"
                             Actor actor = new Actor(Integer.parseInt(parts[0]), parts[1]);
+                            db.addElement(actor.getId(),actor);
                             actors.put(actor.getId(), actor);
 
                             break;
@@ -48,10 +49,12 @@ public class Main {
                             if (parts[6].isEmpty()) parts[6] = "-1";
 
                             Film film = new Film(Integer.parseInt(parts[0]), parts[1], parts[2], parts[3], parts[4], Integer.parseInt(parts[5]), Float.parseFloat(parts[6]));
+                            db.addElement(film.getId(),film);
                             films.put(film.getId(), film);
                             break;
                         case 3://New_Entity: "director_id","director_name"
                             Director director = new Director(Integer.parseInt(parts[0]), parts[1]);
+                            db.addElement(director.getId(),director);
                             directors.put(director.getId(), director);
                             break;
                         case 4: //New_Entity: "actor_id","movie_id"
@@ -73,7 +76,7 @@ public class Main {
                             break;
                         case 6://New_Entity: "user_name","rating","movie_id"
                             if (parts[0].equals(curUserName)) {
-                                (users.get(curUser)).rateFilm(Integer.parseInt(parts[2]), Float.parseFloat(parts[1]));
+                                (users.get(curUser)).addRating(Integer.parseInt(parts[2]), Float.parseFloat(parts[1]));
                             } else {
                                 curUserName = parts[0];
                                 curUser++;
@@ -86,24 +89,6 @@ public class Main {
                 }
 
             }
-            ///TESTING OUTPUTS
-            /*System.out.println("List of actors :" + actors);
-            System.out.println("List of films :" + films);
-            System.out.println("List of directors :" + directors);
-            System.out.println("List of users :" + users);
-            for (Actor elem: films.get(5869).getCast()) {
-                System.out.println(elem.getName());
-            }
-            System.out.println("Directors: ------");
-            for (Director elem: films.get(5869).getDirectors()) {
-                System.out.println(elem.getName());
-            }
-            for (Float elem: films.get(5869).getUserRatings().values()) {
-                System.out.println(elem);
-            }
-            for (Film elem: actors.get(14163).getFilms() ){
-                System.out.println(elem.getTitle());
-            }*/
             System.out.println("You have " + users.size() + " users");
 
         } catch (Exception e) {
@@ -126,7 +111,7 @@ public class Main {
             System.out.println("What do you wish to do?");
             System.out.println("-----------------------------------------------------\n");
             System.out.println("1.) Search film");
-            System.out.println("2.) -");
+            System.out.println("2.) Search actor");
             System.out.println("3.) Cancel and exit");
 
 
@@ -139,6 +124,7 @@ public class Main {
                         searchFilm();
                         break;
                     case 2:
+                        searchActor();
                         break;
                     case 3:
                         System.out.println("Bye, have a nice day :)");
@@ -150,24 +136,26 @@ public class Main {
                 System.out.println("Please input a valid number!\n");
             }
         } while (!close);
+    }
+
+    private static void searchActor() {
 
     }
 
     private static void searchFilm() {
         String searchTerm;
-        ArrayList<Film> hi = new ArrayList<>();
-        hi.trimToSize();
         try {
             Scanner sc = new Scanner(System.in);
             System.out.println("Please enter a term to search for: ");
             searchTerm = sc.nextLine();
             ArrayList<Film> foundFilms = new ArrayList<>();
             //TreeMap<Integer,Film> foundFilms = new TreeMap<>();
-            films.forEach((id, film) -> filterFilms(foundFilms, id, film, searchTerm));
-            for (Film film : foundFilms) {
-
-                System.out.println((foundFilms.indexOf(film) + 1) + ".) " + film.getTitle());
-            }
+            films.forEach((id, film) -> {
+                if (film.getTitle().contains(searchTerm)) {
+                    //System.out.println("Found film " + film.getId() + " title: " + film.getTitle());
+                    foundFilms.add(film);
+                }
+            }); //filterFilms(foundFilms, id, film, searchTerm));
 
             foundFilms.sort(Comparator.comparing(Film::getTitle)); //Sorts the films by title. Comperator.comapring new in Java 8, equivalent to lambda: (Film f1,Film f2)-> f1.getTitle().compareTo(f2.getTitle())
             for (Film film : foundFilms) {

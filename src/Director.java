@@ -1,23 +1,14 @@
-public class Director {
-    private int id;
-    private String name;
-    private Film[] films;
+import java.util.ArrayList;
 
-    public int getId() {
-        return id;
-    }
+public class Director extends Person {
+    private ArrayList<Film> films = new ArrayList<>();
 
-    public String getName() {
-        return name;
-    }
-
-    public Film[] getFilms() {
+    public ArrayList<Film> getFilms() {
         return films;
     }
 
-    public Director(int id, String name) {
-        this.id = id;
-        this.name = name;
+     Director(int id, String name) {
+        super(name,id);
     }
 
 

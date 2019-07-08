@@ -1,25 +1,11 @@
 import java.util.ArrayList;
 
-public class Actor {
-    private String name;
-    private Integer id;
-    private ArrayList<Film> films = new ArrayList<>();
+public class Actor extends Person{
+    private ArrayList<Film> films;
 
     public Actor(int id, String name) {
-        this.id = id;
-        this.name = name;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public Integer getId() {
-        return this.id;
+        super(name,id);
+        films= new ArrayList<Film>();
     }
 
     public ArrayList<Film> getFilms() {
