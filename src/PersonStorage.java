@@ -12,10 +12,6 @@ public class PersonStorage<T extends Person> {
          return map.get(id);
     }
 
-/*    void addFilmToPerson(Film film){
-        film.
-    }*/
-
     private TreeMap<Integer, T> getMap() {
         return map;
     }

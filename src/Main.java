@@ -6,10 +6,10 @@ import java.util.TreeMap;
 
 
 public class Main {
-    private static TreeMap<Integer, Actor> actors = new TreeMap<Integer, Actor>();
+/*    private static TreeMap<Integer, Actor> actors = new TreeMap<Integer, Actor>();
     private static TreeMap<Integer, Director> directors = new TreeMap<>();
     private static TreeMap<Integer, Film> films = new TreeMap<>();
-    private static TreeMap<Integer, User> users = new TreeMap<>();
+    private static TreeMap<Integer, User> users = new TreeMap<>();*/
 
 
     public static void main(String[] args) {
@@ -40,8 +40,8 @@ public class Main {
                     switch (section) {
                         case 1://New_Entity: "actor_id","actor_name"
                             Actor actor = new Actor(Integer.parseInt(parts[0]), parts[1]);
-                            db.addElement(actor.getId(),actor);
-                            actors.put(actor.getId(), actor);
+                            db.addElement(actor.getId(), actor);
+                            //actors.put(actor.getId(), actor);
 
                             break;
                         case 2://New_Entity: "movie_id","movie_title","movie_plot","genre_name","movie_released","movie_imdbVotes","movie_imdbRating"
@@ -49,47 +49,48 @@ public class Main {
                             if (parts[6].isEmpty()) parts[6] = "-1";
 
                             Film film = new Film(Integer.parseInt(parts[0]), parts[1], parts[2], parts[3], parts[4], Integer.parseInt(parts[5]), Float.parseFloat(parts[6]));
-                            db.addElement(film.getId(),film);
-                            films.put(film.getId(), film);
+                            db.addElement(film.getId(), film);
+                            //films.put(film.getId(), film);
                             break;
                         case 3://New_Entity: "director_id","director_name"
                             Director director = new Director(Integer.parseInt(parts[0]), parts[1]);
-                            db.addElement(director.getId(),director);
-                            directors.put(director.getId(), director);
+                            db.addElement(director.getId(), director);
+                            //directors.put(director.getId(), director);
                             break;
                         case 4: //New_Entity: "actor_id","movie_id"
-                            film = films.get(Integer.parseInt(parts[1]));
+                            film = db.getFilm(Integer.parseInt(parts[1]));//films.get(Integer.parseInt(parts[1]));
                             try {
-                                film.addActor(actors.get(Integer.parseInt(parts[0])));
-                                actors.get(Integer.parseInt(parts[0])).addFilm(film);
+                                film.addActor(db.getActor(Integer.parseInt(parts[0])));
+                                db.getActor(Integer.parseInt(parts[0])).addFilm(film);
                             } catch (Exception e) {
                                 System.out.println(e);
                             }
                             break;
                         case 5: //New_Entity: "director_id","movie_id"
-                            film = films.get(Integer.parseInt(parts[1]));
+                            film = db.getFilm(Integer.parseInt(parts[1]));//films.get(Integer.parseInt(parts[1]));
                             try {
-                                film.addDirector(directors.get(Integer.parseInt(parts[0])));
+                                film.addDirector(db.getDirector(Integer.parseInt(parts[0])));
                             } catch (Exception e) {
                                 System.out.println(e);
                             }
                             break;
                         case 6://New_Entity: "user_name","rating","movie_id"
                             if (parts[0].equals(curUserName)) {
-                                (users.get(curUser)).addRating(Integer.parseInt(parts[2]), Float.parseFloat(parts[1]));
+                                (db.getUser(curUser)).addRating(Integer.parseInt(parts[2]), Float.parseFloat(parts[1]));
                             } else {
                                 curUserName = parts[0];
                                 curUser++;
                                 User user = new User(curUser, parts[0], Float.parseFloat(parts[1]), Integer.parseInt(parts[2]));
-                                users.put(curUser, user);
+                                db.addElement(curUser, user);
                             }
-                            films.get(Integer.parseInt(parts[2])).addUserRating(curUser, Float.parseFloat(parts[1]));
+                            db.addRatingToFilm(Integer.parseInt(parts[2]),Float.parseFloat(parts[1]));
+                            //db.getFilm(Integer.parseInt(parts[2])).addUserRating(curUser, Float.parseFloat(parts[1])); //LIEBER SO ODER WIE IN DER LINE DARÜBER?
                             break;
                     }
                 }
 
             }
-            System.out.println("You have " + users.size() + " users");
+            //System.out.println("You have " +size() + " users");
 
         } catch (Exception e) {
             System.out.println("Error loading Database : " + e);
@@ -101,8 +102,6 @@ public class Main {
         System.out.println("-----------------------------------------------------\n");
         //loginMenu();
         mainMenu();
-
-
     }
 
     private static void mainMenu() {
@@ -121,7 +120,7 @@ public class Main {
                 int option = sc.nextInt();
                 switch (option) {
                     case 1:
-                        searchFilm();
+                        //searchFilm();
                         break;
                     case 2:
                         searchActor();
@@ -142,7 +141,7 @@ public class Main {
 
     }
 
-    private static void searchFilm() {
+ /*   private static void searchFilm() {
         String searchTerm;
         try {
             Scanner sc = new Scanner(System.in);
@@ -167,7 +166,7 @@ public class Main {
         }
 
 
-    }
+    }*/
 
     private static void filterFilms(ArrayList<Film> foundFilms, Integer id, Film film, String searchTerm) {
         if (film.getTitle().contains(searchTerm)) {
@@ -176,7 +175,7 @@ public class Main {
         }
     }
 
-    public static void loginMenu() {
+/*    public static void loginMenu() {
         boolean close = false;
         do {
             System.out.println("To use the OMDC, please log in or create a new User");
@@ -204,5 +203,5 @@ public class Main {
                 System.out.println("Please input a valid number!\n");
             }
         } while (!close);
-    }
+    }*/
 }

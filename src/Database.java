@@ -25,5 +25,23 @@ public class Database {
         films.addElement(id,film);
     }
 
+    public Film getFilm(Integer id){
+        return films.getFilm(id);
+    }
+    public Actor getActor(Integer id){
+        return actors.getPerson(id);
+    }
+    public Director getDirector(Integer id){
+        return directors.getPerson(id);
+    }
+    public User getUser(Integer id){
+        return users.getPerson(id);
+    }
 
+    public void addRatingToUser(Integer id, Float rating){
+        getUser(id).addRating(id,rating);
+    }
+    public void addRatingToFilm(Integer id, Float rating){
+        getFilm(id).addUserRating(id,rating);
+    }
 }

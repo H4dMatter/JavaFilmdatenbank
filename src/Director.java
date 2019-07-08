@@ -11,5 +11,9 @@ public class Director extends Person {
         super(name,id);
     }
 
+    public void addFilm(Film film) {
+        films.add(film);
+    }
+
 
 }
