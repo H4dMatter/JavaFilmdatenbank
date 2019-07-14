@@ -9,10 +9,6 @@ public class PersonStorage<T extends Person> implements Searchable{
         map.put(key, elem);
     }
 
-    int size(){
-         return map.size();
-    }
-
 
     public T getPerson(Integer id){
          return map.get(id);
@@ -33,8 +29,12 @@ public class PersonStorage<T extends Person> implements Searchable{
                 foundElements.add(elem);
             }
         });
-        foundElements.sort(Comparator.comparing(Person::getName));
+        foundElements.sort(Comparator.comparing(Person::getName));//Sorts the films by title. Comperator.comapring new in Java 8, equivalent to lambda: (Film f1,Film f2)-> f1.getTitle().compareTo(f2.getTitle())
         return foundElements;
+    }
+
+    int size(){
+        return map.size();
     }
 
 

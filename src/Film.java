@@ -1,5 +1,4 @@
 import java.util.ArrayList;
-import java.util.Map;
 import java.util.TreeMap;
 
 public class Film {
@@ -10,11 +9,11 @@ public class Film {
     private float imdbRating;
     private int numRatings;
     private String genre;
-    private ArrayList<Actor> cast ;
-    private ArrayList<Director> directors ;
-    private TreeMap<Integer, Float> userRatings ;
+    private ArrayList<Actor> cast;
+    private ArrayList<Director> directors;
+    private TreeMap<Integer, Float> userRatings; //TODO: If users dont really matter, change this to a ArrayList<Float> with just the ratings
 
-    //GETTER functions
+    //Getter functions
     public int getId() {
         return this.id;
     }
@@ -31,8 +30,12 @@ public class Film {
         return releaseDate;
     }
 
-    public float getRating() {
+    public float getImdbRating() {
         return imdbRating;
+    }
+
+    public int getNumRatings() {
+        return numRatings;
     }
 
     public String getGenre() {
@@ -51,6 +54,7 @@ public class Film {
         return userRatings;
     }
 
+
     //SETTER functions
     public void addActor(Actor actor) {
         if (actor != null) {
@@ -68,7 +72,7 @@ public class Film {
         userRatings.put(userId, rating);
     }
 
-
+    //Constructor
     public Film(int id, String title, String description, String genre, String releaseDate, int numRatings, float imdbRating) {
         this.id = id;
         this.title = title;
@@ -80,5 +84,32 @@ public class Film {
         cast = new ArrayList<>();
         directors = new ArrayList<>();
         userRatings = new TreeMap<>();
+    }
+
+    //Methods
+    void printDetails() {
+        System.out.println("Title: " + getTitle());
+        System.out.println("Genre: " + getGenre());
+        System.out.println("Released : " + getReleaseDate());
+        System.out.println("Description: " + getDesc());
+
+        System.out.println("Cast : ");
+        for (Actor actor : getCast()) {
+            System.out.println(actor.getName());
+        }
+        System.out.println("Directors : ");
+        for (Director director : getDirectors()) {
+            System.out.println(director.getName());
+        }
+        System.out.println("\nIMDB Rating: " + getImdbRating() + "/10 from " + getNumRatings() + " Imdb Users");
+
+        float totalRating=0;
+        for (Float rating: getUserRatings().values()) //got to use Collection iterator here, since lambda expressions only work with final variables
+        {
+            totalRating+=rating;
+        }
+        totalRating=((float)Math.round((totalRating/getUserRatings().size())*10))/10; //round to 1 decimal place; Cast since round returns result as integer
+        System.out.println("Our users rate this film : " + totalRating + "/5");//TODO: Change User structure, so we can get the Name (Name as key? ) (Maybe just a acumulation here!)
+
     }
 }

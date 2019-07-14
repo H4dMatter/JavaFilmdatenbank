@@ -1,4 +1,5 @@
 import java.io.File;
+import java.util.Map;
 import java.util.Scanner;
 
 public class Database {
@@ -6,6 +7,7 @@ public class Database {
     private PersonStorage<Director> directors;
     private PersonStorage<User> users;
     private FilmStorage films;
+    private User curUser;
 
 
     public Database() {
@@ -13,6 +15,7 @@ public class Database {
         directors = new PersonStorage<>();
         users = new PersonStorage<>();
         films = new FilmStorage();
+        curUser = null;
     }
 
     public void loadData() {
@@ -151,11 +154,25 @@ public class Database {
         return users.getPerson(id);
     }
 
-    public void addRatingToUser(Integer id, Float rating) {
-        getUser(id).addRating(id, rating);
+    public User getCurUser() {
+        return curUser;
     }
 
-    public void addRatingToFilm(Integer id, Float rating) {
-        getFilm(id).addUserRating(id, rating);
+    void login(String username){
+        boolean userExists = false;
+        //Go trough all Users and see if current User already exists.
+        for (Map.Entry<Integer,User> entry: users.getMap().entrySet()) {
+            if(entry.getValue().getName().equalsIgnoreCase(username)){
+                curUser=entry.getValue();
+                userExists=true;
+                System.out.println("Welcome back " + curUser.getName());
+                break;
+            }
+        }
+
+        if (!userExists) {
+            System.out.println("New user"); //TODO : Create a new user here
+        }
+
     }
 }
