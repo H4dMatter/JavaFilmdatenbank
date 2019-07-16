@@ -28,7 +28,7 @@ public class FilmStorage implements Searchable {
                 foundElements.add(elem);
             }
         });
-        foundElements.sort(Comparator.comparing(Film::getTitle));//Sorts the films by title. Comperator.comapring new in Java 8, equivalent to lambda: (Film f1,Film f2)-> f1.getTitle().compareTo(f2.getTitle())
+        foundElements.sort(Comparator.comparing(Film::getTitle));// Sorts the films by title. Comperator.comapring new in Java 8, equivalent to lambda: (Film f1,Film f2)-> f1.getTitle().compareTo(f2.getTitle())
         return foundElements;
     }
 

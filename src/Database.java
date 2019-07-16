@@ -100,7 +100,7 @@ public class Database {
         } catch (Exception e) {
             System.out.println("Error loading Database : " + e);
             System.out.println("Exiting...");
-            return;
+            System.exit(-1);
         }
         System.out.println("Loaded Database successfully :)\n");
 

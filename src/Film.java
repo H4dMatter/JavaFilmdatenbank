@@ -88,20 +88,22 @@ public class Film {
 
     //Methods
     void printDetails() {
-        System.out.println("Title: " + getTitle());
+        System.out.println("\nTitle: " + getTitle());
         System.out.println("Genre: " + getGenre());
         System.out.println("Released : " + getReleaseDate());
         System.out.println("Description: " + getDesc());
-
+        System.out.println("----------------------------------------------");
         System.out.println("Cast : ");
         for (Actor actor : getCast()) {
             System.out.println(actor.getName());
         }
+        System.out.println("----------------------------------------------");
         System.out.println("Directors : ");
         for (Director director : getDirectors()) {
             System.out.println(director.getName());
         }
-        System.out.println("\nIMDB Rating: " + getImdbRating() + "/10 from " + getNumRatings() + " Imdb Users");
+        System.out.println("----------------------------------------------");
+        System.out.println("IMDB Rating: " + getImdbRating() + "/10 from " + getNumRatings() + " Imdb Users");
 
         float totalRating=0;
         for (Float rating: getUserRatings().values()) //got to use Collection iterator here, since lambda expressions only work with final variables
@@ -109,7 +111,7 @@ public class Film {
             totalRating+=rating;
         }
         totalRating=((float)Math.round((totalRating/getUserRatings().size())*10))/10; //round to 1 decimal place; Cast since round returns result as integer
-        System.out.println("Our users rate this film : " + totalRating + "/5");//TODO: Change User structure, so we can get the Name (Name as key? ) (Maybe just a acumulation here!)
+        System.out.println("Our users rate this film : " + totalRating + "/5\n");//TODO: Change User structure, so we can get the Name (Name as key? ) (Maybe just a acumulation here!)
 
     }
 }
