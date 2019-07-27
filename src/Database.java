@@ -23,7 +23,7 @@ public class Database {
         int curUser = 0;
         String curUserName = "";
         String curLine;
-        File file = new File("movieproject.db");//"C:\\Users\\claben\\Desktop\\Uni\\2. Semester\\Java Programing\\Projektarbeit\\movieproject.db");//"C:\\Users\\Max\\Desktop\\Java Projekt\\java-filmdatenbank\\movieproject.db");
+        File file = new File("movieproject.db"); //has to be in the same directory as project file
 
         //Loading the Database file
         try {
@@ -46,7 +46,7 @@ public class Database {
                         case 1://New_Entity: "actor_id","actor_name"
                             Actor actor = new Actor(Integer.parseInt(parts[0]), parts[1]);
                             addElement(actor.getId(), actor);
-                            //actors.put(actor.getId(), actor);
+
 
                             break;
                         case 2://New_Entity: "movie_id","movie_title","movie_plot","genre_name","movie_released","movie_imdbVotes","movie_imdbRating"
@@ -55,12 +55,12 @@ public class Database {
 
                             Film film = new Film(Integer.parseInt(parts[0]), parts[1], parts[2], parts[3], parts[4], Integer.parseInt(parts[5]), Float.parseFloat(parts[6]));
                             addElement(film.getId(), film);
-                            //films.put(film.getId(), film);
+
                             break;
                         case 3://New_Entity: "director_id","director_name"
                             Director director = new Director(Integer.parseInt(parts[0]), parts[1]);
                             addElement(director.getId(), director);
-                            //directors.put(director.getId(), director);
+
                             break;
                         case 4: //New_Entity: "actor_id","movie_id"
                             film = getFilm(Integer.parseInt(parts[1]));//films.get(Integer.parseInt(parts[1]));
@@ -95,7 +95,7 @@ public class Database {
                 }
 
             }
-            System.out.println("You have " + users.size() + " users");
+            System.out.println("You have " + users.getSize() + " users");
 
         } catch (Exception e) {
             System.out.println("Error loading Database : " + e);
@@ -106,19 +106,19 @@ public class Database {
 
     }
 
-    public void addElement(Integer id, Actor actor) {
+    private void addElement(Integer id, Actor actor) {
         actors.addElement(id, actor);
     }
 
-    public void addElement(Integer id, User user) {
+    private void addElement(Integer id, User user) {
         users.addElement(id, user);
     }
 
-    public void addElement(Integer id, Director director) {
+    private void addElement(Integer id, Director director) {
         directors.addElement(id, director);
     }
 
-    public void addElement(Integer id, Film film) {
+    private void addElement(Integer id, Film film) {
         films.addElement(id, film);
     }
 
@@ -171,7 +171,10 @@ public class Database {
         }
 
         if (!userExists) {
-            System.out.println("New user"); //TODO : Create a new user here
+            curUser= new User(users.getSize()+1,username);
+            users.addElement(users.getSize()+1,curUser);
+            System.out.println(users.getPerson(672).getName());
+            System.out.println("Welcome to the OMDC, " + username);
         }
 
     }

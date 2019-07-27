@@ -2,12 +2,20 @@
 import java.util.TreeMap;
 
 public class User extends Person {
-    private TreeMap<Integer, Float> ratings = new TreeMap<>();
+    private TreeMap<Integer, Float> ratings;
 
-
-    public User(int userId, String name, Float rating, Integer movieId) {
+    //Constructor to read in File
+    User(int userId, String name, Float rating, Integer movieId) {
         super(name, userId);
+        ratings = new TreeMap<>();
         this.ratings.put(movieId, rating);
+
+    }
+
+    //Constructor for new Users
+    User(int userId, String name) {
+        super(name, userId);
+        ratings = new TreeMap<>();
 
     }
 
@@ -17,7 +25,7 @@ public class User extends Person {
 
 
     //Methoden
-    public void addRating(int movieId, float rating) {
+    void addRating(int movieId, float rating) {
         this.ratings.put(movieId, rating);
     }
 

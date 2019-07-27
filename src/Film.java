@@ -60,6 +60,7 @@ public class Film {
         if (actor != null) {
             this.cast.add(actor);
         }
+
     }
 
     public void addDirector(Director director) {
@@ -84,6 +85,8 @@ public class Film {
         cast = new ArrayList<>();
         directors = new ArrayList<>();
         userRatings = new TreeMap<>();
+
+
     }
 
     //Methods

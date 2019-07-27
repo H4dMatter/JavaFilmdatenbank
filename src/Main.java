@@ -24,7 +24,6 @@ public class Main {
             System.out.println("To use the OMDC, please log in or create a new User");
             System.out.println("-----------------------------------------------------");
             System.out.println("1.) Log in or create a new User");
-            System.out.println("2.) Skip login");
             System.out.println("0.) Cancel and exit");
 
             try {
@@ -40,14 +39,10 @@ public class Main {
                         mainMenu();
                         break;
                     case 2:
-                        /*System.out.println("You can't get film recommendations without being logged in, do you with to continue?");
-                        mainMenu();*/
-                        System.out.println("Nothing to see here :D"); //TODO: Probably not needed, should be the last thing to implement
+                         //TODO: Probably not needed, should be the last thing to implement
                         break;
                     case 0:
-                        System.out.println("Bye, have a nice day :)");
-                        close = true;
-                        break;
+                        close();
                     default:
                         System.out.println("This wasn't an option available, please try again.\n");
                 }
@@ -86,10 +81,8 @@ public class Main {
                         //TODO: Algorithm for film recommendation
                         break;
                     case 0:
-                        System.out.println("Bye, have a nice day :)"); //TODO: Ask for confirmation before quit
-                        //TODO: cleanup step: Save user + ratings, then terminate
-                        System.exit(0); //Intended program termination
-                        break;
+                        close();
+                        //TODO: Ask for confirmation before quit
                     default:
                         System.out.println("This wasn't an option available, please try again");
                 }
@@ -154,6 +147,12 @@ public class Main {
         } catch (Exception e) {
             System.out.println("This wasn't the right type of input, you need to enter a valid number!");
         }
+    }
+
+    private static void close(){
+        System.out.println("Bye, have a nice day :)");
+        //TODO: cleanup step: Save user + ratings, then terminate
+        System.exit(0);
     }
 
 }
