@@ -42,7 +42,7 @@ public class Main {
                          //TODO: Probably not needed, should be the last thing to implement
                         break;
                     case 0:
-                        close();
+                        db.close();
                     default:
                         System.out.println("This wasn't an option available, please try again.\n");
                 }
@@ -81,7 +81,7 @@ public class Main {
                         //TODO: Algorithm for film recommendation
                         break;
                     case 0:
-                        close();
+                        db.close();
                         //TODO: Ask for confirmation before quit
                     default:
                         System.out.println("This wasn't an option available, please try again");
@@ -149,10 +149,6 @@ public class Main {
         }
     }
 
-    private static void close(){
-        System.out.println("Bye, have a nice day :)");
-        //TODO: cleanup step: Save user + ratings, then terminate
-        System.exit(0);
-    }
+
 
 }

@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.TreeMap;
 
 public class Film {
@@ -8,7 +9,7 @@ public class Film {
     private String releaseDate;
     private float imdbRating;
     private int numRatings;
-    private String genre;
+    private ArrayList<String> genre;
     private ArrayList<Actor> cast;
     private ArrayList<Director> directors;
     private TreeMap<Integer, Float> userRatings; //TODO: If users dont really matter, change this to a ArrayList<Float> with just the ratings
@@ -39,7 +40,15 @@ public class Film {
     }
 
     public String getGenre() {
-        return genre;
+        StringBuilder genreString=new StringBuilder("");
+        for(int i=0;i<genre.size();i++){
+            genreString=genreString.append(genre.get(i)+";");
+        }
+        return genreString.toString();
+    }
+
+    void addGenre(String genre){
+        this.genre.add(genre);
     }
 
     public ArrayList<Actor> getCast() {
@@ -78,7 +87,7 @@ public class Film {
         this.id = id;
         this.title = title;
         this.desc = description;
-        this.genre = genre;
+        this.genre = new ArrayList<String>(Arrays.asList(genre.split(";")));
         this.releaseDate = releaseDate;
         this.numRatings = numRatings;
         this.imdbRating = imdbRating;

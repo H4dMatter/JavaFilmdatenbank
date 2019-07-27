@@ -1,4 +1,7 @@
+import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.Map;
 import java.util.Scanner;
 
@@ -23,10 +26,11 @@ public class Database {
         int curUser = 0;
         String curUserName = "";
         String curLine;
-        File file = new File("movieproject.db"); //has to be in the same directory as project file
+
 
         //Loading the Database file
         try {
+            File file = new File("movieproject.db"); //has to be in the same directory as project file
             System.out.println("Loading database, please give us a second.");
             Scanner sc = new Scanner(file);
             System.out.println("File length: " + file.length());
@@ -46,16 +50,17 @@ public class Database {
                         case 1://New_Entity: "actor_id","actor_name"
                             Actor actor = new Actor(Integer.parseInt(parts[0]), parts[1]);
                             addElement(actor.getId(), actor);
-
-
                             break;
                         case 2://New_Entity: "movie_id","movie_title","movie_plot","genre_name","movie_released","movie_imdbVotes","movie_imdbRating"
                             if (parts[5].isEmpty()) parts[5] = "0";
                             if (parts[6].isEmpty()) parts[6] = "0";
-
-                            Film film = new Film(Integer.parseInt(parts[0]), parts[1], parts[2], parts[3], parts[4], Integer.parseInt(parts[5]), Float.parseFloat(parts[6]));
-                            addElement(film.getId(), film);
-
+                            if (films.getMap().get(Integer.parseInt(parts[0])) == null) {
+                                Film film = new Film(Integer.parseInt(parts[0]), parts[1], parts[2], parts[3], parts[4], Integer.parseInt(parts[5]), Float.parseFloat(parts[6]));
+                                addElement(film.getId(), film);
+                            }
+                            else {
+                                if(!parts[3].equals("")) films.getFilm(Integer.parseInt(parts[0])).addGenre(parts[3]);
+                            }
                             break;
                         case 3://New_Entity: "director_id","director_name"
                             Director director = new Director(Integer.parseInt(parts[0]), parts[1]);
@@ -63,17 +68,20 @@ public class Database {
 
                             break;
                         case 4: //New_Entity: "actor_id","movie_id"
-                            film = getFilm(Integer.parseInt(parts[1]));//films.get(Integer.parseInt(parts[1]));
+
                             try {
+                                Film film = films.getFilm(Integer.parseInt(parts[1]));//films.get(Integer.parseInt(parts[1]));
                                 film.addActor(getActor(Integer.parseInt(parts[0])));
                                 getActor(Integer.parseInt(parts[0])).addFilm(film);
                             } catch (Exception e) {
                                 System.out.println(e);
+                                System.out.println("Here");
                             }
                             break;
                         case 5: //New_Entity: "director_id","movie_id"
-                            film = getFilm(Integer.parseInt(parts[1]));
+
                             try {
+                                Film film = films.getFilm(Integer.parseInt(parts[1]));
                                 film.addDirector(getDirector(Integer.parseInt(parts[0])));
                             } catch (Exception e) {
                                 System.out.println(e);
@@ -88,17 +96,18 @@ public class Database {
                                 User user = new User(curUser, parts[0], Float.parseFloat(parts[1]), Integer.parseInt(parts[2]));
                                 addElement(curUser, user);
                             }
-                            //addRatingToFilm(Integer.parseInt(parts[2]),Float.parseFloat(parts[1]));
-                            getFilm(Integer.parseInt(parts[2])).addUserRating(curUser, Float.parseFloat(parts[1])); //FRAGE: LIEBER SO ODER WIE IN DER LINE DARÜBER?
+                            films.getFilm(Integer.parseInt(parts[2])).addUserRating(curUser, Float.parseFloat(parts[1]));
                             break;
                     }
                 }
 
             }
-            System.out.println("You have " + users.getSize() + " users");
+            //System.out.println("You have " + users.getSize() + " users");
+            System.out.println(films.getFilm(6978).getGenre());
 
         } catch (Exception e) {
             System.out.println("Error loading Database : " + e);
+            e.printStackTrace();
             System.out.println("Exiting...");
             System.exit(-1);
         }
@@ -138,9 +147,6 @@ public class Database {
         return films;
     }
 
-    public Film getFilm(Integer id) {
-        return films.getFilm(id);
-    }
 
     public Actor getActor(Integer id) {
         return actors.getPerson(id);
@@ -158,24 +164,73 @@ public class Database {
         return curUser;
     }
 
-    void login(String username){
+    void login(String username) {
         boolean userExists = false;
         //Go trough all Users and see if current User already exists.
-        for (Map.Entry<Integer,User> entry: users.getMap().entrySet()) {
-            if(entry.getValue().getName().equalsIgnoreCase(username)){
-                curUser=entry.getValue();
-                userExists=true;
+        for (Map.Entry<Integer, User> entry : users.getMap().entrySet()) {
+            if (entry.getValue().getName().equalsIgnoreCase(username)) {
+                curUser = entry.getValue();
+                userExists = true;
                 System.out.println("Welcome back " + curUser.getName());
                 break;
             }
         }
 
         if (!userExists) {
-            curUser= new User(users.getSize()+1,username);
-            users.addElement(users.getSize()+1,curUser);
+            curUser = new User(users.getSize() + 1, username);
+            users.addElement(users.getSize() + 1, curUser);
             System.out.println(users.getPerson(672).getName());
-            System.out.println("Welcome to the OMDC, " + username);
+            System.out.println("Welcome to the OMDC " + username);
         }
 
+    }
+
+    private void saveFile() {
+        try {
+            //File file=new File("movieproject.db");
+            BufferedWriter writer = new BufferedWriter(new FileWriter("movieproject.db"));
+            writer.write("New_Entity: \"actor_id\",\"actor_name\"\n");
+            for (Map.Entry<Integer, Actor> entry : actors.getMap().entrySet()) {
+                writer.write("\"" + entry.getKey() + "\",\"" + entry.getValue().getName() + "\"\n");
+            }
+            writer.write("New_Entity: \"movie_id\",\"movie_title\",\"movie_plot\",\"genre_name\",\"movie_released\",\"movie_imdbVotes\",\"movie_imdbRating\"\n");
+            for (Map.Entry<Integer, Film> entry : films.getMap().entrySet()) {
+                writer.write("\"" + entry.getKey() + "\",\"" + entry.getValue().getTitle() + "\",\"" + entry.getValue().getDesc() + "\",\"" + entry.getValue().getGenre() + "\",\"" + entry.getValue().getReleaseDate() + "\",\"" + entry.getValue().getNumRatings() + "\",\"" + entry.getValue().getImdbRating() + "\"\n");
+            }
+            writer.write("New_Entity: \"director_id\",\"director_name\"\n");
+            for (Map.Entry<Integer, Director> entry : directors.getMap().entrySet()) {
+                writer.write("\"" + entry.getKey() + "\",\"" + entry.getValue().getName() + "\"\n");
+            }
+            writer.write("New_Entity: \"actor_id\",\"movie_id\"\n");
+            for (Map.Entry<Integer, Film> entry : films.getMap().entrySet()) {
+                for (Actor actor:entry.getValue().getCast()) {
+                    writer.write("\"" + actor.getId() + "\",\"" + entry.getKey() + "\"\n");
+                }
+            }
+            writer.write("New_Entity: \"director_id\",\"movie_id\"\n");
+            for (Map.Entry<Integer, Director> entry : directors.getMap().entrySet()) {
+                for (Film film:entry.getValue().getFilms()) {
+                    writer.write("\"" + entry.getKey() + "\",\"" + film.getId() + "\"\n");
+                }
+            }
+            writer.write("New_Entity: \"user_name\",\"rating\",\"movie_id\"\n");
+            for (Map.Entry<Integer, User> entry : users.getMap().entrySet()) {
+                for (Map.Entry<Integer, Float> rating : entry.getValue().getRatings().entrySet()) {
+                    writer.write("\"" + entry.getValue().getName() + "\",\"" + rating.getValue() + "\",\"" + rating.getKey() + "\"\n");
+
+                }
+            }
+            writer.close();
+        } catch (IOException e) {
+            System.out.println("Error opening the DB-File");
+        }
+    }
+
+    void close() {
+        System.out.println("Saving database...");
+        saveFile();
+        System.out.println("Bye, have a nice day :)");
+        //TODO: cleanup step: Save user + ratings, then terminate
+        System.exit(0);
     }
 }

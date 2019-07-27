@@ -2,14 +2,14 @@ import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.TreeMap;
 
-public class FilmStorage extends Storage implements Searchable {
+public class FilmStorage implements Searchable {
     private TreeMap<Integer, Film> map;
 
      void addElement(Integer key, Film elem) {
         map.put(key, elem);
     }
 
-    private TreeMap<Integer, Film> getMap() {
+    TreeMap<Integer, Film> getMap() {
         return map;
     }
 

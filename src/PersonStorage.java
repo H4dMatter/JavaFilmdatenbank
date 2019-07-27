@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.TreeMap;
 
-public class PersonStorage<T extends Person> extends Storage implements Searchable {
+public class PersonStorage<T extends Person> implements Searchable {
     private TreeMap<Integer, T> map;
 
     void addElement(Integer key, T elem) {
@@ -19,7 +19,6 @@ public class PersonStorage<T extends Person> extends Storage implements Searchab
     }
 
     public PersonStorage() {
-        super(new TreeMap<Integer, T>());
         map = new TreeMap<Integer, T>();
     }
 
