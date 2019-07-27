@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.TreeMap;
 
-public class Film {
+public class Film implements Comparable<Film>{
     private int id;
     private String title;
     private String desc;
@@ -12,7 +12,7 @@ public class Film {
     private ArrayList<String> genre;
     private ArrayList<Actor> cast;
     private ArrayList<Director> directors;
-    private TreeMap<Integer, Float> userRatings; //TODO: If users dont really matter, change this to a ArrayList<Float> with just the ratings
+    private TreeMap<Integer, Float> userRatings;
 
     //Getter functions
     public int getId() {
@@ -64,7 +64,7 @@ public class Film {
     }
 
 
-    //SETTER functions
+    //Setter functions
     public void addActor(Actor actor) {
         if (actor != null) {
             this.cast.add(actor);
@@ -99,6 +99,11 @@ public class Film {
     }
 
     //Methods
+    @Override
+    public int compareTo(Film film){
+        return Integer.compare(this.getId(),film.getId());
+    }
+
     void printDetails() {
         System.out.println("\nTitle: " + getTitle());
         System.out.println("Genre: " + getGenre());
@@ -123,7 +128,7 @@ public class Film {
             totalRating+=rating;
         }
         totalRating=((float)Math.round((totalRating/getUserRatings().size())*10))/10; //round to 1 decimal place; Cast since round returns result as integer
-        System.out.println("Our users rate this film : " + totalRating + "/5\n");//TODO: Change User structure, so we can get the Name (Name as key? ) (Maybe just a acumulation here!)
+        System.out.println("Our users rate this film : " + totalRating + "/5\n");
 
     }
 }

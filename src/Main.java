@@ -1,6 +1,5 @@
 
 import java.util.ArrayList;
-import java.util.Comparator;
 import java.util.Scanner;
 
 
@@ -39,7 +38,7 @@ public class Main {
                         mainMenu();
                         break;
                     case 2:
-                         //TODO: Probably not needed, should be the last thing to implement
+                        //TODO: Probably not needed, should be the last thing to implement
                         break;
                     case 0:
                         db.close();
@@ -78,7 +77,7 @@ public class Main {
                         break;
                     case 2:
                         System.out.println("WIP");
-                        //TODO: Algorithm for film recommendation
+                        db.recommendFilm();
                         break;
                     case 0:
                         db.close();
@@ -108,6 +107,7 @@ public class Main {
 
         try {
             //OUTER MENU : Here the user can decide if he wants to see details or go back to search for a new film
+            Film curFilm = null;
             System.out.println("Do you wish to view details for one of these films?");
             System.out.println("Enter the shown number in front of the film you like to know more about or 0 to go back");
 
@@ -117,7 +117,8 @@ public class Main {
                 if ((option == 0)) return;
 
                 if (option <= foundFilms.size()) {
-                    foundFilms.get(option - 1).printDetails(); //subtract the one we added earlier, so the 0 always stays free for going back
+                    curFilm = foundFilms.get(option - 1);
+                    curFilm.printDetails(); //subtract the one we added earlier, so the 0 always stays free for going back
                     valid = true;
                 } else {
                     System.out.println("This wasn't an option available, try again");
@@ -129,12 +130,27 @@ public class Main {
             //INNER MENU
             do {
                 System.out.println("You can rate this film or go back and look at another");
-                System.out.println("1.) Rate the film");
+                System.out.println("1.) Add or update your Rating");
                 System.out.println("0.) Go back");
                 int option = sc.nextInt();
                 switch (option) {
                     case 1:
-                        System.out.println("Which rating (out of 5) do you give this film?");
+                        System.out.println("Which rating (between 1,0 and 5,0; rounded to one decimal place) do you give this film?");
+                        try {
+                            float rating = sc.nextFloat();
+                            if (rating <= 5 && rating >= 1) {
+                                rating = ((float) Math.round(rating * 10)) / 10;
+                                curFilm.addUserRating(db.getCurUser().getId(), rating);
+                                db.getCurUser().addRating(curFilm.getId(), rating);
+                                System.out.println("Added your Rating successfully.");
+                            } else {
+                                System.out.println("This rating was not valid, please use the given format");
+                            }
+                        } catch (Exception e) {
+                            System.out.println("Not a valid input, please input a decimal number according to the format specified");
+                            sc.nextLine();//flush out enter from the input
+                        }
+                        close = true;
                         break;
                     case 0:
                         showFilmsMenu(foundFilms);
@@ -148,7 +164,6 @@ public class Main {
             System.out.println("This wasn't the right type of input, you need to enter a valid number!");
         }
     }
-
 
 
 }

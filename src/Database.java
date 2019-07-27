@@ -2,8 +2,10 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Map;
 import java.util.Scanner;
+import java.util.TreeMap;
 
 public class Database {
     private PersonStorage<Actor> actors;
@@ -57,9 +59,8 @@ public class Database {
                             if (films.getMap().get(Integer.parseInt(parts[0])) == null) {
                                 Film film = new Film(Integer.parseInt(parts[0]), parts[1], parts[2], parts[3], parts[4], Integer.parseInt(parts[5]), Float.parseFloat(parts[6]));
                                 addElement(film.getId(), film);
-                            }
-                            else {
-                                if(!parts[3].equals("")) films.getFilm(Integer.parseInt(parts[0])).addGenre(parts[3]);
+                            } else {
+                                if (!parts[3].equals("")) films.getFilm(Integer.parseInt(parts[0])).addGenre(parts[3]);
                             }
                             break;
                         case 3://New_Entity: "director_id","director_name"
@@ -179,7 +180,6 @@ public class Database {
         if (!userExists) {
             curUser = new User(users.getSize() + 1, username);
             users.addElement(users.getSize() + 1, curUser);
-            System.out.println(users.getPerson(672).getName());
             System.out.println("Welcome to the OMDC " + username);
         }
 
@@ -203,13 +203,13 @@ public class Database {
             }
             writer.write("New_Entity: \"actor_id\",\"movie_id\"\n");
             for (Map.Entry<Integer, Film> entry : films.getMap().entrySet()) {
-                for (Actor actor:entry.getValue().getCast()) {
+                for (Actor actor : entry.getValue().getCast()) {
                     writer.write("\"" + actor.getId() + "\",\"" + entry.getKey() + "\"\n");
                 }
             }
             writer.write("New_Entity: \"director_id\",\"movie_id\"\n");
             for (Map.Entry<Integer, Director> entry : directors.getMap().entrySet()) {
-                for (Film film:entry.getValue().getFilms()) {
+                for (Film film : entry.getValue().getFilms()) {
                     writer.write("\"" + entry.getKey() + "\",\"" + film.getId() + "\"\n");
                 }
             }
@@ -226,11 +226,48 @@ public class Database {
         }
     }
 
+    //TODO: Algorithm for film recommendation
+    TreeMap<Film,Float> recommendFilm() {
+        TreeMap<Film,Float> usersLike = new TreeMap<>();
+        TreeMap<User, Integer> similarUsers = new TreeMap<>();
+        for (Map.Entry<Integer, Float> ratings : curUser.getRatings().entrySet()) {
+            if (ratings.getValue() >= 3) {
+                for (Map.Entry<Integer, Float> goodFilmRatings : films.getFilm(ratings.getKey()).getUserRatings().entrySet())
+                    if (!(curUser.getId().equals(goodFilmRatings.getKey())) && Math.abs(ratings.getValue() - goodFilmRatings.getValue()) <= 1) // this skips the rating if we are looking at the current user, or if the user is not similar enough
+                    {
+
+                        if (similarUsers.get(users.getPerson(goodFilmRatings.getKey())) == null) {
+                            similarUsers.put(users.getPerson(goodFilmRatings.getKey()), 1);
+                        } else {
+                            similarUsers.put(users.getPerson(goodFilmRatings.getKey()), similarUsers.get(users.getPerson(goodFilmRatings.getKey())) + 1);
+                        }
+                    }
+            }
+        }
+        /*for (Map.Entry<User, Integer> ratings : similarUsers.entrySet()) {
+            ratings.getKey().getRatings().forEach((filmId, rating) ->
+            {
+                if (Math.abs(rating - curUser.getRating(filmId)) <= 1) {
+                    usersLike.put(films.getFilm(filmId),ratings.getValue()*rating);
+                }
+            });
+        }*/
+        return usersLike;
+    }
+/*        for(
+    Film film:userLikes)
+
+    {
+        for (Map.Entry<Integer, Float> ratings : film.getUserRatings()) {
+            if ()
+        }
+    }*/
+
+
     void close() {
         System.out.println("Saving database...");
         saveFile();
         System.out.println("Bye, have a nice day :)");
-        //TODO: cleanup step: Save user + ratings, then terminate
         System.exit(0);
     }
 }
