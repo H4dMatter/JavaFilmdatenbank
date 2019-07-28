@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.TreeMap;
 
-public class Film implements Comparable<Film>{
+ class Film implements Comparable<Film>{
     private int id;
     private String title;
     private String desc;
@@ -15,31 +15,31 @@ public class Film implements Comparable<Film>{
     private TreeMap<Integer, Float> userRatings;
 
     //Getter functions
-    public int getId() {
+     int getId() {
         return this.id;
     }
 
-    public String getTitle() {
+     String getTitle() {
         return title;
     }
 
-    public String getDesc() {
+     String getDesc() {
         return desc;
     }
 
-    public String getReleaseDate() {
+     String getReleaseDate() {
         return releaseDate;
     }
 
-    public float getImdbRating() {
+     float getImdbRating() {
         return imdbRating;
     }
 
-    public int getNumRatings() {
+     int getNumRatings() {
         return numRatings;
     }
 
-    public String getGenre() {
+     String getGenre() {
         StringBuilder genreString=new StringBuilder("");
         for(int i=0;i<genre.size();i++){
             genreString=genreString.append(genre.get(i)+";");
@@ -47,43 +47,43 @@ public class Film implements Comparable<Film>{
         return genreString.toString();
     }
 
-    void addGenre(String genre){
-        this.genre.add(genre);
-    }
-
-    public ArrayList<Actor> getCast() {
+     ArrayList<Actor> getCast() {
         return cast;
     }
 
-    public ArrayList<Director> getDirectors() {
+     ArrayList<Director> getDirectors() {
         return directors;
     }
 
-    public TreeMap<Integer, Float> getUserRatings() {
+     TreeMap<Integer, Float> getUserRatings() {
         return userRatings;
     }
 
 
     //Setter functions
-    public void addActor(Actor actor) {
+    void addGenre(String genre){
+        this.genre.add(genre);
+    }
+
+     void addActor(Actor actor) {
         if (actor != null) {
             this.cast.add(actor);
         }
 
     }
 
-    public void addDirector(Director director) {
+     void addDirector(Director director) {
         if (director != null) {
             this.directors.add(director);
         }
     }
 
-    public void addUserRating(Integer userId, float rating) {
+     void addUserRating(Integer userId, float rating) {
         userRatings.put(userId, rating);
     }
 
     //Constructor
-    public Film(int id, String title, String description, String genre, String releaseDate, int numRatings, float imdbRating) {
+     Film(int id, String title, String description, String genre, String releaseDate, int numRatings, float imdbRating) {
         this.id = id;
         this.title = title;
         this.desc = description;

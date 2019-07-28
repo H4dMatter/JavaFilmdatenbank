@@ -9,15 +9,15 @@ public class FilmStorage implements Searchable {
         map.put(key, elem);
     }
 
-    TreeMap<Integer, Film> getMap() {
+     TreeMap<Integer, Film> getMap() {
         return map;
     }
 
-    Film getFilm(Integer id){
+     Film getFilm(Integer id){
          return map.get(id);
     }
 
-    public FilmStorage(){
+     FilmStorage(){
         map = new TreeMap<Integer, Film>();
     }
 

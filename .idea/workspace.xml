@@ -2,10 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bef46c60-3881-4236-be6c-99d6fda7d5fd" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/java-filmdatenbank.plantuml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/StaticMode.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Test.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/src.plantuml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/movieproject.db" beforeDir="false" afterPath="$PROJECT_DIR$/movieproject.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Actor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Actor.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Database.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Database.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Director.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Director.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Film.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Film.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/FilmStorage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/FilmStorage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Person.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Person.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/PersonStorage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/PersonStorage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/User.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -18,143 +28,34 @@
   <component name="DefaultGradleProjectSettings">
     <option name="isMigrated" value="true" />
   </component>
+  <component name="FavoritesManager">
+    <favorites_list name="java-filmdatenbank" />
+  </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Main.java">
+        <entry file="file://$PROJECT_DIR$/src/Film.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="203">
-              <caret line="60" selection-start-line="60" selection-end-line="60" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state relative-caret-position="221">
+              <caret line="15" lean-forward="true" selection-start-line="15" selection-end-line="15" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Test.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="102">
+              <caret line="8" column="12" selection-start-line="8" selection-start-column="12" selection-end-line="8" selection-end-column="12" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/Database.java">
+        <entry file="file://$PROJECT_DIR$/src/src.plantuml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="288">
-              <caret line="244" column="13" lean-forward="true" selection-start-line="244" selection-start-column="13" selection-end-line="244" selection-end-column="13" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#5690#5691#0" expanded="true" />
-                <element signature="e#5786#5787#0" expanded="true" />
-                <element signature="e#5898#5899#0" expanded="true" />
-                <element signature="e#5994#5995#0" expanded="true" />
-                <element signature="e#6070#6071#0" expanded="true" />
-                <element signature="e#6155#6156#0" expanded="true" />
-                <element signature="e#6228#6229#0" expanded="true" />
-                <element signature="e#6293#6294#0" expanded="true" />
-                <element signature="e#6378#6379#0" expanded="true" />
-                <element signature="e#6471#6472#0" expanded="true" />
-                <element signature="e#6552#6553#0" expanded="true" />
-                <element signature="e#6614#6615#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/User.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="169">
-              <caret line="16" column="3" selection-start-line="16" selection-start-column="3" selection-end-line="19" selection-end-column="5" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#436#437#0" expanded="true" />
-                <element signature="e#500#501#0" expanded="true" />
-                <element signature="e#718#719#0" expanded="true" />
-                <element signature="e#832#833#0" expanded="true" />
-                <element signature="e#866#867#0" expanded="true" />
-                <element signature="e#892#893#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/PersonStorage.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="169">
-              <caret line="13" selection-start-line="13" selection-end-line="13" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#248#249#0" expanded="true" />
-                <element signature="e#282#283#0" expanded="true" />
-                <element signature="e#355#356#0" expanded="true" />
-                <element signature="e#398#399#0" expanded="true" />
-                <element signature="e#424#425#0" expanded="true" />
-                <element signature="e#438#439#0" expanded="true" />
-                <element signature="e#485#486#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/FilmStorage.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="16" selection-start-line="16" selection-end-line="16" />
-              <folding>
-                <element signature="e#392#393#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Film.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="374">
-              <caret line="103" column="48" selection-start-line="103" selection-start-column="48" selection-end-line="103" selection-end-column="48" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#483#484#0" expanded="true" />
-                <element signature="e#513#514#0" expanded="true" />
-                <element signature="e#545#546#0" expanded="true" />
-                <element signature="e#573#574#0" expanded="true" />
-                <element signature="e#604#605#0" expanded="true" />
-                <element signature="e#631#632#0" expanded="true" />
-                <element signature="e#669#670#0" expanded="true" />
-                <element signature="e#703#704#0" expanded="true" />
-                <element signature="e#739#740#0" expanded="true" />
-                <element signature="e#772#773#0" expanded="true" />
-                <element signature="e#806#807#0" expanded="true" />
-                <element signature="e#839#840#0" expanded="true" />
-                <element signature="e#1120#1121#0" expanded="true" />
-                <element signature="e#1157#1158#0" expanded="true" />
-                <element signature="e#1198#1199#0" expanded="true" />
-                <element signature="e#1225#1226#0" expanded="true" />
-                <element signature="e#1274#1275#0" expanded="true" />
-                <element signature="e#1306#1307#0" expanded="true" />
-                <element signature="e#1361#1362#0" expanded="true" />
-                <element signature="e#1395#1396#0" expanded="true" />
-                <element signature="e#1743#1744#0" expanded="true" />
-                <element signature="e#1790#1791#0" expanded="true" />
-                <element signature="e#2416#2417#0" expanded="true" />
-                <element signature="e#2481#2482#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/movieproject.db">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="248">
-              <caret line="167562" column="13" lean-forward="true" selection-start-line="167562" selection-start-column="13" selection-end-line="167562" selection-end-column="13" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Actor.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="27" selection-start-column="27" selection-end-column="27" />
+            <state relative-caret-position="253">
+              <caret line="194" column="25" selection-start-line="194" selection-start-column="25" selection-end-line="194" selection-end-column="25" />
             </state>
           </provider>
         </entry>
@@ -166,25 +67,15 @@
       <list>
         <option value="Interface" />
         <option value="Class" />
+        <option value="UML Sequence" />
+        <option value="UML Class" />
       </list>
     </option>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>9816</find>
-      <find>new_entity</find>
-      <find>&quot;0&quot;</find>
-      <find>&quot;12&quot;</find>
-      <find>&quot;17&quot;</find>
-      <find>&quot;* *&quot;</find>
-      <find>new_ent</find>
-      <find>new_enti</find>
-      <find>new_entit</find>
-      <find>&quot;,&quot;</find>
       <find>new_en</find>
-      <find>actor</find>
       <find>9907</find>
-      <find>Matrix</find>
       <find>Actor</find>
       <find>db</find>
       <find>db.</find>
@@ -197,6 +88,22 @@
       <find>Indiana Jones and the Kingdom of the Crystal Skull</find>
       <find>1325</find>
       <find>9107</find>
+      <find>bla</find>
+      <find>Matrix</find>
+      <find>curUser</find>
+      <find>foundF</find>
+      <find>allFilms</find>
+      <find>actor</find>
+      <find>director</find>
+      <find>New_E</find>
+      <find>27975</find>
+      <find>27976</find>
+      <find>sc</find>
+      <find>set</find>
+      <find>new_enti</find>
+      <find>public</find>
+      <find>namespace  {</find>
+      <find>+</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -206,16 +113,21 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/src/Schauspieler.java" />
-        <option value="$PROJECT_DIR$/src/Actor.java" />
-        <option value="$PROJECT_DIR$/src/Director.java" />
-        <option value="$PROJECT_DIR$/src/Person.java" />
         <option value="$PROJECT_DIR$/src/Storage.java" />
-        <option value="$PROJECT_DIR$/src/PersonStorage.java" />
         <option value="$PROJECT_DIR$/src/Searchable.java" />
-        <option value="$PROJECT_DIR$/src/FilmStorage.java" />
-        <option value="$PROJECT_DIR$/src/Main.java" />
+        <option value="$PROJECT_DIR$/src/uml.puml" />
+        <option value="$PROJECT_DIR$/src/UML.puml" />
         <option value="$PROJECT_DIR$/src/User.java" />
+        <option value="$PROJECT_DIR$/src/Person.java" />
+        <option value="$PROJECT_DIR$/src/PersonStorage.java" />
+        <option value="$PROJECT_DIR$/src/Director.java" />
+        <option value="$PROJECT_DIR$/src/StaticMode.java" />
+        <option value="$PROJECT_DIR$/src/Test.java" />
+        <option value="$PROJECT_DIR$/src/FilmStorage.java" />
+        <option value="$PROJECT_DIR$/src/Actor.java" />
         <option value="$PROJECT_DIR$/src/Film.java" />
+        <option value="$PROJECT_DIR$/src/src.plantuml" />
+        <option value="$PROJECT_DIR$/src/Main.java" />
         <option value="$PROJECT_DIR$/src/Database.java" />
       </list>
     </option>
@@ -232,6 +144,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -242,22 +156,27 @@
             <path>
               <item name="java-filmdatenbank" type="b2602c69:ProjectViewProjectNode" />
               <item name="java-filmdatenbank" type="462c0819:PsiDirectoryNode" />
+              <item name="out" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="java-filmdatenbank" type="b2602c69:ProjectViewProjectNode" />
+              <item name="java-filmdatenbank" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
+    <property name="DefaultPlantUmlFileTemplate" value="UML Class" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/.." />
-    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RecentsManager">
     <key name="CopyClassDialog.RECENTS_KEY">
@@ -313,11 +232,15 @@
       <workItem from="1563037464708" duration="7185000" />
       <workItem from="1563101309262" duration="12328000" />
       <workItem from="1564218994963" duration="4302000" />
+      <workItem from="1564266795685" duration="602000" />
+      <workItem from="1564302172820" duration="33168000" />
+      <workItem from="1564337623238" duration="923000" />
+      <workItem from="1564338561878" duration="9170000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="144233000" />
+    <option name="totallyTimeSpent" value="188096000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -330,18 +253,19 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.18230277" />
+      <window_info id="Favorites" order="0" side_tool="true" weight="0.32995737" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
       <window_info id="UI Designer" order="4" />
       <window_info id="Capture Tool" order="5" />
-      <window_info id="Favorites" order="6" side_tool="true" />
+      <window_info active="true" content_ui="combo" id="Project" order="6" side_tool="true" visible="true" weight="0.17270789" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.3286119" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49798658" weight="0.35102925" />
-      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49946696" weight="0.39869988" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32827735" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49733475" visible="true" weight="0.35211268" />
+      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.4989339" weight="0.39869988" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32936078" />
@@ -349,7 +273,7 @@
       <window_info anchor="bottom" id="Version Control" order="8" sideWeight="0.49925372" weight="0.3286119" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
       <window_info anchor="bottom" id="Terminal" order="10" weight="0.3286119" />
-      <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.50201344" side_tool="true" weight="0.3286119" />
+      <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.5010661" side_tool="true" weight="0.35102925" />
       <window_info anchor="bottom" id="Messages" order="12" sideWeight="0.49946696" weight="0.32719395" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -360,38 +284,8 @@
       <window_info anchor="right" id="Capture Analysis" order="6" />
       <window_info anchor="right" id="Palette&#9;" order="7" />
       <window_info anchor="right" id="Database" order="8" />
+      <window_info anchor="right" id="PlantUML" order="9" visible="true" weight="0.45735607" />
     </layout>
-    <layout-to-restore>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.18230277" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info id="Image Layers" order="2" />
-      <window_info id="Designer" order="3" />
-      <window_info id="UI Designer" order="4" />
-      <window_info id="Capture Tool" order="5" />
-      <window_info id="Favorites" order="6" side_tool="true" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.3286119" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49798658" visible="true" weight="0.35102925" />
-      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49946696" weight="0.39869988" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" weight="0.32936078" />
-      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="8" sideWeight="0.49925372" weight="0.3286119" />
-      <window_info anchor="bottom" id="Database Changes" order="9" />
-      <window_info anchor="bottom" id="Terminal" order="10" weight="0.3286119" />
-      <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.50201344" side_tool="true" weight="0.3286119" />
-      <window_info anchor="bottom" id="Messages" order="12" sideWeight="0.49946696" weight="0.32719395" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="Palette" order="3" />
-      <window_info anchor="right" id="Theme Preview" order="4" />
-      <window_info anchor="right" id="Maven" order="5" />
-      <window_info anchor="right" id="Capture Analysis" order="6" />
-      <window_info anchor="right" id="Palette&#9;" order="7" />
-      <window_info anchor="right" id="Database" order="8" />
-    </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
@@ -437,34 +331,13 @@
     </option>
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/Database.java</url>
-          <line>269</line>
-          <properties />
-          <option name="timeStamp" value="9" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/Main.java</url>
-          <line>89</line>
-          <properties />
-          <option name="timeStamp" value="27" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/Database.java</url>
-          <line>254</line>
-          <properties />
-          <option name="timeStamp" value="30" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
     <watches-manager>
       <configuration name="Application">
         <watch expression="film" />
-        <watch expression="films" />
         <watch expression="curUser" />
         <watch expression="option" />
+        <watch expression="filmList.subList(0, (recommendations.size() + filmList.size()) - 100)" />
+        <watch expression="(recommendations.size() + filmList.size()) - 100" />
       </configuration>
     </watches-manager>
   </component>
@@ -490,9 +363,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/java-filmdatenbank.iml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="jar://C:/Program Files/Java/jdk-12.0.1/lib/src.zip!/java.base/java/io/InputStream.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="149">
@@ -526,13 +396,6 @@
             <element signature="e#25136#25137#0" expanded="true" />
             <element signature="e#25176#25177#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk-12.0.1/lib/src.zip!/java.base/java/util/ArrayList.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="27914">
-          <caret line="1746" column="16" selection-start-line="1746" selection-start-column="16" selection-end-line="1746" selection-end-column="16" />
         </state>
       </provider>
     </entry>
@@ -572,24 +435,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Director.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="5" lean-forward="true" selection-start-line="10" selection-start-column="5" selection-end-line="10" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://C:/Program Files/Java/jdk-12.0.1/lib/src.zip!/java.base/java/util/function/Function.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="198">
           <caret line="48" column="6" selection-start-line="48" selection-start-column="6" selection-end-line="48" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk-12.0.1/lib/src.zip!/java.base/java/util/function/BiConsumer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="52" column="12" selection-start-line="52" selection-start-column="12" selection-end-line="52" selection-end-column="12" />
         </state>
       </provider>
     </entry>
@@ -607,173 +456,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="uml://JAVA/">
-      <provider selected="true" editor-type-id="UmlEditorProvider">
-        <state>
-          <ID>JAVA</ID>
-          <OriginalElement />
-          <nodes>
-            <node x="0.6666666666666856" y="271.0">User</node>
-            <node x="382.7459449404762" y="194.0">Film</node>
-            <node x="302.9166666666667" y="271.0">FilmStorage</node>
-            <node x="421.0138020833333" y="97.0">Director</node>
-            <node x="94.66666666666669" y="271.0">PersonStorage</node>
-            <node x="320.0138020833333" y="97.0">Actor</node>
-            <node x="242.32704613095228" y="408.0">Database</node>
-            <node x="153.91666666666669" y="194.0">Searchable</node>
-            <node x="316.4166666666667" y="0.0">Person</node>
-            <node x="281.8270461309523" y="485.0">Main</node>
-          </nodes>
-          <notes />
-          <edges>
-            <edge source="Database" target="User">
-              <point x="-48.0" y="-13.5" />
-              <point x="245.32704613095228" y="388.0" />
-              <point x="13.0" y="388.0" />
-              <point x="-24.666666666666686" y="13.5" />
-            </edge>
-            <edge source="Database" target="Film">
-              <point x="30.0" y="-13.5" />
-              <point x="323.3270461309523" y="358.0" />
-              <point x="442.4166666666667" y="358.0" />
-              <point x="442.4166666666667" y="241.0" />
-              <point x="434.54594494047615" y="241.0" />
-              <point x="14.799999999999983" y="13.5" />
-            </edge>
-            <edge source="User" target="Person">
-              <point x="18.5" y="-13.5" />
-              <point x="56.166666666666686" y="251.0" />
-              <point x="43.166666666666686" y="251.0" />
-              <point x="43.166666666666686" y="57.0" />
-              <point x="335.2738095238095" y="57.0" />
-              <point x="-25.14285714285714" y="13.5" />
-            </edge>
-            <edge source="Database" target="FilmStorage">
-              <point x="6.0" y="-13.5" />
-              <point x="299.3270461309523" y="318.0" />
-              <point x="323.4166666666667" y="318.0" />
-              <point x="-41.0" y="13.5" />
-            </edge>
-            <edge source="Main" target="Film">
-              <point x="24.666666666666657" y="-13.5" />
-              <point x="343.4937127976189" y="460.0" />
-              <point x="463.6666666666667" y="460.0" />
-              <point x="463.6666666666667" y="251.0" />
-              <point x="449.34594494047616" y="251.0" />
-              <point x="29.599999999999994" y="13.5" />
-            </edge>
-            <edge source="Director" target="Film">
-              <point x="2.8421709430404007E-14" y="13.5" />
-              <point x="472.0138020833333" y="174.0" />
-              <point x="452.1209449404762" y="174.0" />
-              <point x="32.375" y="-13.5" />
-            </edge>
-            <edge source="Main" target="Database">
-              <point x="-24.666666666666686" y="-13.5" />
-              <point x="294.1603794642856" y="460.0" />
-              <point x="267.8270461309523" y="460.0" />
-              <point x="-25.5" y="13.5" />
-            </edge>
-            <edge source="Director" target="Person">
-              <point x="-25.5" y="-13.5" />
-              <point x="446.5138020833333" y="67.0" />
-              <point x="385.55952380952385" y="67.0" />
-              <point x="25.142857142857167" y="13.5" />
-            </edge>
-            <edge source="Database" target="PersonStorage">
-              <point x="-18.0" y="-13.5" />
-              <point x="275.3270461309523" y="338.0" />
-              <point x="208.83333333333331" y="338.0" />
-              <point x="45.66666666666663" y="13.5" />
-            </edge>
-            <edge source="PersonStorage" target="Searchable">
-              <point x="34.25" y="-13.5" />
-              <point x="197.41666666666669" y="251.0" />
-              <point x="182.91666666666669" y="251.0" />
-              <point x="-29.0" y="13.5" />
-            </edge>
-            <edge source="Database" target="Actor">
-              <point x="0.0" y="-13.5" />
-              <point x="292.4166666666667" y="174.0" />
-              <point x="348.94237351190475" y="174.0" />
-              <point x="-11.571428571428562" y="13.5" />
-            </edge>
-            <edge source="Film" target="Director">
-              <point x="4.625" y="-13.5" />
-              <point x="424.3709449404762" y="174.0" />
-              <point x="428.2995163690475" y="174.0" />
-              <point x="-43.71428571428572" y="13.5" />
-            </edge>
-            <edge source="Actor" target="Film">
-              <point x="34.71428571428574" y="13.5" />
-              <point x="395.228087797619" y="144.0" />
-              <point x="415.1209449404762" y="144.0" />
-              <point x="-4.625" y="-13.5" />
-            </edge>
-            <edge source="FilmStorage" target="Searchable">
-              <point x="-41.0" y="-13.5" />
-              <point x="323.4166666666667" y="251.0" />
-              <point x="240.91666666666669" y="251.0" />
-              <point x="29.0" y="13.5" />
-            </edge>
-            <edge source="PersonStorage" target="Person">
-              <point x="-34.25" y="-13.5" />
-              <point x="128.91666666666669" y="251.0" />
-              <point x="143.41666666666669" y="251.0" />
-              <point x="143.41666666666669" y="67.0" />
-              <point x="347.84523809523813" y="67.0" />
-              <point x="-12.571428571428555" y="13.5" />
-            </edge>
-            <edge source="Actor" target="Person">
-              <point x="-20.25" y="-13.5" />
-              <point x="340.2638020833333" y="77.0" />
-              <point x="360.4166666666667" y="77.0" />
-              <point x="0.0" y="13.5" />
-            </edge>
-            <edge source="Database" target="Director">
-              <point x="42.0" y="-13.5" />
-              <point x="335.3270461309523" y="378.0" />
-              <point x="491.4477678571428" y="378.0" />
-              <point x="491.4477678571428" y="164.0" />
-              <point x="501.1566592261904" y="164.0" />
-              <point x="29.142857142857167" y="13.5" />
-            </edge>
-            <edge source="FilmStorage" target="Film">
-              <point x="41.0" y="-13.5" />
-              <point x="-14.800000000000011" y="13.5" />
-            </edge>
-            <edge source="Film" target="Actor">
-              <point x="-23.125" y="-13.5" />
-              <point x="396.6209449404762" y="164.0" />
-              <point x="372.08523065476186" y="164.0" />
-              <point x="11.57142857142859" y="13.5" />
-            </edge>
-          </edges>
-          <settings layout="Hierarchic Group" zoom="1.1" x="-208.0" y="110.0" />
-          <SelectedNodes />
-          <Categories />
-          <SCOPE>Project Files</SCOPE>
-          <VISIBILITY>private</VISIBILITY>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Storage.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="31" lean-forward="true" selection-start-line="3" selection-start-column="31" selection-end-line="3" selection-end-column="31" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#134#135#0" expanded="true" />
-            <element signature="e#160#161#0" expanded="true" />
-            <element signature="e#186#187#0" expanded="true" />
-            <element signature="e#214#215#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Searchable.java">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Storage.java" />
     <entry file="jar://C:/Program Files/Java/jdk-12.0.1/lib/src.zip!/java.base/java/io/BufferedWriter.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="191">
@@ -788,38 +471,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar://C:/Program Files/Java/jdk-12.0.1/lib/src.zip!/java.base/java/util/TreeMap.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="997" column="16" selection-start-line="997" selection-start-column="16" selection-end-line="997" selection-end-column="16" />
-          <folding>
-            <element signature="e#28853#28854#0" expanded="true" />
-            <element signature="e#28893#28894#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://C:/Program Files/Java/jdk-12.0.1/lib/src.zip!/java.base/java/util/Map.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="191">
           <caret line="426" column="10" selection-start-line="426" selection-start-column="10" selection-end-line="426" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Actor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="27" selection-start-column="27" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/FilmStorage.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="16" selection-start-line="16" selection-end-line="16" />
-          <folding>
-            <element signature="e#392#393#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -830,119 +485,382 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/movieproject.db">
+    <entry file="jar://C:/Program Files/Java/jdk-12.0.1/lib/src.zip!/java.base/java/util/function/BiConsumer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="248">
-          <caret line="167562" column="13" lean-forward="true" selection-start-line="167562" selection-start-column="13" selection-end-line="167562" selection-end-column="13" />
+        <state relative-caret-position="176">
+          <caret line="52" column="9" selection-start-line="52" selection-start-column="9" selection-end-line="52" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/java-filmdatenbank.iml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Imdc.iml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk-12.0.1/lib/src.zip!/java.base/java/util/function/Predicate.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="191">
+          <caret line="48" column="12" selection-start-line="48" selection-start-column="12" selection-end-line="48" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk-12.0.1/lib/src.zip!/java.base/java/util/ArrayList.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="299">
+          <caret line="679" column="16" selection-start-line="679" selection-start-column="16" selection-end-line="679" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/movieproject.db" />
+    <entry file="jar://C:/Program Files/Java/jdk-12.0.1/lib/src.zip!/java.base/java/util/TreeMap.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-741">
+          <caret line="47" column="63" selection-start-line="47" selection-start-column="63" selection-end-line="47" selection-end-column="63" />
+          <folding>
+            <element signature="e#25966#25967#0" expanded="true" />
+            <element signature="e#26022#26023#0" expanded="true" />
+            <element signature="e#28853#28854#0" expanded="true" />
+            <element signature="e#28893#28894#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="uml://JAVA/">
+      <provider selected="true" editor-type-id="UmlEditorProvider">
+        <state>
+          <ID>JAVA</ID>
+          <OriginalElement />
+          <nodes>
+            <node x="510.27985908649174" y="311.0">User</node>
+            <node x="78.39783770651124" y="174.0">Film</node>
+            <node x="215.40485908649174" y="622.0">Test</node>
+            <node x="102.64783770651124" y="87.0">Actor</node>
+            <node x="241.52985908649174" y="448.0">Database</node>
+            <node x="315.02985908649174" y="174.0">Searchable</node>
+            <node x="159.02985908649177" y="311.0">FilmStorage</node>
+            <node x="23.863192419825083" y="311.0">Director</node>
+            <node x="253.65485908649174" y="545.0">StaticMode</node>
+            <node x="353.27985908649174" y="311.0">PersonStorage</node>
+            <node x="119.39783770651124" y="0.0">Person</node>
+            <node x="215.40485908649174" y="699.0">Main</node>
+          </nodes>
+          <notes />
+          <edges>
+            <edge source="Test" target="Film">
+              <point x="-27.75" y="-13.5" />
+              <point x="224.65485908649174" y="597.0" />
+              <point x="6.166666666666686" y="597.0" />
+              <point x="6.166666666666686" y="251.0" />
+              <point x="87.64783770651124" y="251.0" />
+              <point x="-27.75" y="13.5" />
+            </edge>
+            <edge source="User" target="Person">
+              <point x="18.5" y="-13.5" />
+              <point x="565.7798590864918" y="291.0" />
+              <point x="552.7798590864918" y="291.0" />
+              <point x="552.7798590864918" y="47.0" />
+              <point x="201.11212342079696" y="47.0" />
+              <point x="37.71428571428572" y="13.5" />
+            </edge>
+            <edge source="Database" target="FilmStorage">
+              <point x="-6.0" y="-13.5" />
+              <point x="286.52985908649174" y="358.0" />
+              <point x="261.5298590864918" y="358.0" />
+              <point x="41.0" y="13.5" />
+            </edge>
+            <edge source="Director" target="Film">
+              <point x="-8.499999999999972" y="-13.5" />
+              <point x="66.36319241982511" y="271.0" />
+              <point x="99.98117103984458" y="271.0" />
+              <point x="-15.416666666666657" y="13.5" />
+            </edge>
+            <edge source="Main" target="Database">
+              <point x="29.599999999999994" y="-13.5" />
+              <point x="282.00485908649176" y="679.0" />
+              <point x="380.15485908649174" y="679.0" />
+              <point x="380.15485908649174" y="505.0" />
+              <point x="333.32985908649175" y="505.0" />
+              <point x="40.80000000000001" y="13.5" />
+            </edge>
+            <edge source="Director" target="Person">
+              <point x="-25.49999999999997" y="-13.5" />
+              <point x="49.36319241982511" y="231.0" />
+              <point x="67.89783770651124" y="231.0" />
+              <point x="67.89783770651124" y="57.0" />
+              <point x="138.2549805636541" y="57.0" />
+              <point x="-25.14285714285714" y="13.5" />
+            </edge>
+            <edge source="Database" target="PersonStorage">
+              <point x="18.0" y="-13.5" />
+              <point x="310.52985908649174" y="358.0" />
+              <point x="376.11319241982505" y="358.0" />
+              <point x="-45.666666666666686" y="13.5" />
+            </edge>
+            <edge source="PersonStorage" target="Searchable">
+              <point x="-34.25" y="-13.5" />
+              <point x="387.52985908649174" y="291.0" />
+              <point x="402.02985908649174" y="291.0" />
+              <point x="29.0" y="13.5" />
+            </edge>
+            <edge source="Test" target="StaticMode">
+              <point x="9.25" y="-13.5" />
+              <point x="261.65485908649174" y="597.0" />
+              <point x="272.9881924198251" y="597.0" />
+              <point x="-38.66666666666666" y="13.5" />
+            </edge>
+            <edge source="Film" target="Director">
+              <point x="-3.0833333333333144" y="13.5" />
+              <point x="112.31450437317793" y="291.0" />
+              <point x="100.36319241982511" y="291.0" />
+              <point x="25.50000000000003" y="-13.5" />
+            </edge>
+            <edge source="Actor" target="Film">
+              <point x="0.0" y="13.5" />
+              <point x="27.75" y="-13.5" />
+            </edge>
+            <edge source="StaticMode" target="Database">
+              <point x="9.666666666666657" y="-13.5" />
+              <point x="321.3215257531584" y="525.0" />
+              <point x="312.9298590864917" y="525.0" />
+              <point x="20.399999999999977" y="13.5" />
+            </edge>
+            <edge source="Actor" target="Person">
+              <point x="20.25" y="-13.5" />
+              <point x="0.0" y="13.5" />
+            </edge>
+            <edge source="FilmStorage" target="Film">
+              <point x="0.0" y="-13.5" />
+              <point x="220.52985908649177" y="251.0" />
+              <point x="149.31450437317793" y="251.0" />
+              <point x="33.916666666666686" y="13.5" />
+            </edge>
+            <edge source="Database" target="Director">
+              <point x="-36.0" y="-13.5" />
+              <point x="256.52985908649174" y="408.0" />
+              <point x="108.86319241982508" y="408.0" />
+              <point x="34.0" y="13.5" />
+            </edge>
+            <edge source="StaticMode" target="User">
+              <point x="29.0" y="-13.5" />
+              <point x="340.65485908649174" y="515.0" />
+              <point x="525.8011904761906" y="515.0" />
+              <point x="525.8011904761906" y="418.0" />
+              <point x="562.0798590864918" y="418.0" />
+              <point x="14.799999999999955" y="13.5" />
+            </edge>
+            <edge source="Database" target="User">
+              <point x="42.0" y="-13.5" />
+              <point x="334.52985908649174" y="398.0" />
+              <point x="532.4798590864917" y="398.0" />
+              <point x="-14.800000000000011" y="13.5" />
+            </edge>
+            <edge source="Database" target="Film">
+              <point x="-30.0" y="-13.5" />
+              <point x="262.52985908649174" y="398.0" />
+              <point x="142.52985908649177" y="398.0" />
+              <point x="142.52985908649177" y="281.0" />
+              <point x="130.81450437317793" y="281.0" />
+              <point x="15.416666666666686" y="13.5" />
+            </edge>
+            <edge source="StaticMode" target="Film">
+              <point x="-48.33333333333333" y="-13.5" />
+              <point x="263.3215257531584" y="505.0" />
+              <point x="13.363192419825083" y="505.0" />
+              <point x="13.363192419825083" y="261.0" />
+              <point x="93.8145043731779" y="261.0" />
+              <point x="-21.583333333333343" y="13.5" />
+            </edge>
+            <edge source="Main" target="Film">
+              <point x="-29.599999999999994" y="-13.5" />
+              <point x="222.80485908649177" y="679.0" />
+              <point x="0.0" y="679.0" />
+              <point x="0.0" y="241.0" />
+              <point x="81.48117103984455" y="241.0" />
+              <point x="-33.916666666666686" y="13.5" />
+            </edge>
+            <edge source="Main" target="Test">
+              <point x="0.0" y="-13.5" />
+              <point x="0.0" y="13.5" />
+            </edge>
+            <edge source="Database" target="Actor">
+              <point x="0.0" y="-13.5" />
+              <point x="292.52985908649174" y="154.0" />
+              <point x="154.71926627793982" y="154.0" />
+              <point x="11.571428571428584" y="13.5" />
+            </edge>
+            <edge source="Test" target="Database">
+              <point x="-9.25" y="-13.5" />
+              <point x="243.15485908649174" y="525.0" />
+              <point x="272.12985908649176" y="525.0" />
+              <point x="-20.399999999999977" y="13.5" />
+            </edge>
+            <edge source="FilmStorage" target="Searchable">
+              <point x="41.0" y="-13.5" />
+              <point x="261.5298590864918" y="291.0" />
+              <point x="344.02985908649174" y="291.0" />
+              <point x="-29.0" y="13.5" />
+            </edge>
+            <edge source="PersonStorage" target="Person">
+              <point x="34.25" y="-13.5" />
+              <point x="456.02985908649174" y="291.0" />
+              <point x="441.52985908649174" y="291.0" />
+              <point x="441.52985908649174" y="67.0" />
+              <point x="175.96926627793982" y="67.0" />
+              <point x="12.571428571428584" y="13.5" />
+            </edge>
+            <edge source="Main" target="StaticMode">
+              <point x="14.800000000000011" y="-13.5" />
+              <point x="267.20485908649175" y="669.0" />
+              <point x="350.3215257531584" y="669.0" />
+              <point x="38.66666666666666" y="13.5" />
+            </edge>
+            <edge source="Film" target="Actor">
+              <point x="-9.25" y="-13.5" />
+              <point x="106.14783770651124" y="144.0" />
+              <point x="120.0049805636541" y="144.0" />
+              <point x="-23.14285714285714" y="13.5" />
+            </edge>
+          </edges>
+          <settings layout="Hierarchic Group" zoom="1.0" x="71.0" y="184.0" />
+          <SelectedNodes />
+          <Categories />
+          <SCOPE>Project Files</SCOPE>
+          <VISIBILITY>private</VISIBILITY>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/UML.puml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="425">
+          <caret line="25" column="7" selection-start-line="25" selection-start-column="7" selection-end-line="25" selection-end-column="7" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Person.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="12" selection-start-line="12" selection-end-line="12" />
+        <state relative-caret-position="187">
+          <caret line="13" column="5" selection-start-line="13" selection-start-column="5" selection-end-line="13" selection-end-column="5" />
           <folding>
+            <element signature="e#196#197#0" expanded="true" />
             <element signature="e#221#222#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Main.java">
+    <entry file="file://$PROJECT_DIR$/src/Searchable.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="203">
-          <caret line="60" selection-start-line="60" selection-end-line="60" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Film.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="103" column="48" selection-start-line="103" selection-start-column="48" selection-end-line="103" selection-end-column="48" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#483#484#0" expanded="true" />
-            <element signature="e#513#514#0" expanded="true" />
-            <element signature="e#545#546#0" expanded="true" />
-            <element signature="e#573#574#0" expanded="true" />
-            <element signature="e#604#605#0" expanded="true" />
-            <element signature="e#631#632#0" expanded="true" />
-            <element signature="e#669#670#0" expanded="true" />
-            <element signature="e#703#704#0" expanded="true" />
-            <element signature="e#739#740#0" expanded="true" />
-            <element signature="e#772#773#0" expanded="true" />
-            <element signature="e#806#807#0" expanded="true" />
-            <element signature="e#839#840#0" expanded="true" />
-            <element signature="e#1120#1121#0" expanded="true" />
-            <element signature="e#1157#1158#0" expanded="true" />
-            <element signature="e#1198#1199#0" expanded="true" />
-            <element signature="e#1225#1226#0" expanded="true" />
-            <element signature="e#1274#1275#0" expanded="true" />
-            <element signature="e#1306#1307#0" expanded="true" />
-            <element signature="e#1361#1362#0" expanded="true" />
-            <element signature="e#1395#1396#0" expanded="true" />
-            <element signature="e#1743#1744#0" expanded="true" />
-            <element signature="e#1790#1791#0" expanded="true" />
-            <element signature="e#2416#2417#0" expanded="true" />
-            <element signature="e#2481#2482#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="85">
+          <caret line="5" column="17" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="17" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/PersonStorage.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="169">
-          <caret line="13" selection-start-line="13" selection-end-line="13" />
+        <state relative-caret-position="231">
+          <caret line="24" column="51" selection-start-line="24" selection-start-column="51" selection-end-line="24" selection-end-column="51" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#248#249#0" expanded="true" />
-            <element signature="e#282#283#0" expanded="true" />
-            <element signature="e#355#356#0" expanded="true" />
-            <element signature="e#398#399#0" expanded="true" />
-            <element signature="e#424#425#0" expanded="true" />
+            <element signature="e#305#306#0" expanded="true" />
+            <element signature="e#339#340#0" expanded="true" />
             <element signature="e#438#439#0" expanded="true" />
             <element signature="e#485#486#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/User.java">
+    <entry file="file://$PROJECT_DIR$/src/StaticMode.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="169">
-          <caret line="16" column="3" selection-start-line="16" selection-start-column="3" selection-end-line="19" selection-end-column="5" />
+        <state relative-caret-position="102">
+          <caret line="6" column="12" selection-start-line="6" selection-start-column="12" selection-end-line="6" selection-end-column="12" />
+          <folding>
+            <element signature="e#2361#2362#0" expanded="true" />
+            <element signature="e#2404#2405#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/movieproject.db">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="251">
+          <caret line="177593" column="30" selection-start-line="177593" selection-start-column="30" selection-end-line="177593" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Director.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="2" selection-start-line="2" selection-end-line="2" />
+          <caret line="12" column="4" selection-start-line="12" selection-start-column="4" selection-end-line="12" selection-end-column="4" />
+          <caret line="15" column="4" selection-start-line="15" selection-start-column="4" selection-end-line="15" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Actor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="4" selection-start-line="5" selection-start-column="4" selection-end-line="5" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="816">
+          <caret line="66" column="58" selection-start-line="66" selection-start-column="58" selection-end-line="66" selection-end-column="58" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#436#437#0" expanded="true" />
-            <element signature="e#500#501#0" expanded="true" />
-            <element signature="e#718#719#0" expanded="true" />
-            <element signature="e#832#833#0" expanded="true" />
-            <element signature="e#866#867#0" expanded="true" />
-            <element signature="e#892#893#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/User.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="442">
+          <caret line="28" column="4" selection-start-line="28" selection-start-column="4" selection-end-line="28" selection-end-column="4" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/FilmStorage.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="19" column="4" selection-start-line="19" selection-start-column="4" selection-end-line="19" selection-end-column="4" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Database.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="288">
-          <caret line="244" column="13" lean-forward="true" selection-start-line="244" selection-start-column="13" selection-end-line="244" selection-end-column="13" />
+        <state relative-caret-position="-1054">
+          <caret line="222" column="94" selection-start-line="222" selection-start-column="94" selection-end-line="222" selection-end-column="94" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#5690#5691#0" expanded="true" />
-            <element signature="e#5786#5787#0" expanded="true" />
-            <element signature="e#5898#5899#0" expanded="true" />
-            <element signature="e#5994#5995#0" expanded="true" />
-            <element signature="e#6070#6071#0" expanded="true" />
-            <element signature="e#6155#6156#0" expanded="true" />
-            <element signature="e#6228#6229#0" expanded="true" />
-            <element signature="e#6293#6294#0" expanded="true" />
-            <element signature="e#6378#6379#0" expanded="true" />
-            <element signature="e#6471#6472#0" expanded="true" />
-            <element signature="e#6552#6553#0" expanded="true" />
-            <element signature="e#6614#6615#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src.svg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Film.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="15" lean-forward="true" selection-start-line="15" selection-end-line="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Test.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="8" column="12" selection-start-line="8" selection-start-column="12" selection-end-line="8" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/src.plantuml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="253">
+          <caret line="194" column="25" selection-start-line="194" selection-start-column="25" selection-end-line="194" selection-end-column="25" />
         </state>
       </provider>
     </entry>

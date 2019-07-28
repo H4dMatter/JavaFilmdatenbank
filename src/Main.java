@@ -8,12 +8,22 @@ public class Main {
 
 
     public static void main(String[] args) {
+        boolean test = false;
+
         db = new Database();
         db.loadData();
+        if (args.length > 0) {
+            for (String arg : args) {
+                if (arg.contains("--test=true")) test=true;
+            }
+            if(test)Test.test(db);
+            else new StaticMode(db, args,false);
 
-        System.out.println("Welcome to OMDC, the Offline Movie Data-Collection");
-        System.out.println("-----------------------------------------------------\n");
-        loginMenu();
+        } else {
+            System.out.println("Welcome to OMDC, the Offline Movie Data-Collection");
+            System.out.println("-----------------------------------------------------\n");
+            loginMenu();
+        }
     }
 
     /*Starting Menu, where the User will create a new or use an existing account*/
@@ -37,9 +47,6 @@ public class Main {
                         db.login(input);
                         mainMenu();
                         break;
-                    case 2:
-                        //TODO: Probably not needed, should be the last thing to implement
-                        break;
                     case 0:
                         db.close();
                     default:
@@ -55,6 +62,7 @@ public class Main {
     /*Main Menu since User will stay here most of the time, search for films or get recommendations*/
     private static void mainMenu() {
         boolean close = false;
+        ArrayList<Film> foundFilms;
         do {
             System.out.println("What do you wish to do?");
             System.out.println("-----------------------------------------------------");
@@ -69,19 +77,22 @@ public class Main {
                 sc.nextLine();      //Clears the Enter from previous input out of the buffer
                 switch (option) {
                     case 1:
-                        System.out.println("Please enter a name to search for : ");
+                        System.out.println("Please enter a name to search for (if you leave this empty we will show you the whole database): ");
                         String input = sc.nextLine();
-                        ArrayList<Film> foundFilms = db.getFilms().search(input); //FRAGE: Main muss hierfür Film kennen... ist das okay aus OO-Sicht?
-                        /*System.out.println("\n");*/
+                        foundFilms = db.getFilms().search(input); //FRAGE: Main muss hierfür Film kennen... ist das okay aus OO-Sicht?
                         showFilmsMenu(foundFilms);
                         break;
                     case 2:
-                        System.out.println("WIP");
-                        db.recommendFilm();
+                        if (db.getCurUser().getRatings().size() == 0)
+                            System.out.println("Unfortunately, you haven't yet rated a film we can base our recommendations on :(\n");
+                        else {
+                            System.out.println("Generating recommendations based on your ratings...");
+                            foundFilms = db.recommendFilm();
+                            showFilmsMenu(foundFilms);
+                        }
                         break;
                     case 0:
                         db.close();
-                        //TODO: Ask for confirmation before quit
                     default:
                         System.out.println("This wasn't an option available, please try again");
                 }
@@ -89,7 +100,7 @@ public class Main {
             } catch (Exception e) {
                 System.out.println("Please input a valid number!\n");
             }
-        } while (!close); //TODO: get rid of variable "close"
+        } while (!close);
     }
 
 
@@ -109,7 +120,7 @@ public class Main {
             //OUTER MENU : Here the user can decide if he wants to see details or go back to search for a new film
             Film curFilm = null;
             System.out.println("Do you wish to view details for one of these films?");
-            System.out.println("Enter the shown number in front of the film you like to know more about or 0 to go back");
+            System.out.println("Enter the number shown in front of the film you like to know more about or 0 to go back");
 
             Scanner sc = new Scanner(System.in);
             do {

@@ -2,12 +2,11 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Map;
-import java.util.Scanner;
-import java.util.TreeMap;
+import java.nio.charset.StandardCharsets;
+import java.util.*;
+import java.util.stream.Collectors;
 
-public class Database {
+class Database {
     private PersonStorage<Actor> actors;
     private PersonStorage<Director> directors;
     private PersonStorage<User> users;
@@ -15,7 +14,7 @@ public class Database {
     private User curUser;
 
 
-    public Database() {
+    Database() {
         actors = new PersonStorage<>();
         directors = new PersonStorage<>();
         users = new PersonStorage<>();
@@ -23,7 +22,7 @@ public class Database {
         curUser = null;
     }
 
-    public void loadData() {
+    void loadData() {
         int section = 0;
         int curUser = 0;
         String curUserName = "";
@@ -32,15 +31,17 @@ public class Database {
 
         //Loading the Database file
         try {
+            int count=0;
             File file = new File("movieproject.db"); //has to be in the same directory as project file
+
             System.out.println("Loading database, please give us a second.");
-            Scanner sc = new Scanner(file);
-            System.out.println("File length: " + file.length());
+            Scanner sc = new Scanner(file, StandardCharsets.UTF_8);
             while (sc.hasNextLine()) {
                 curLine = sc.nextLine();
                 //New_Entity starts a new section.Since Layout of each section is known, we only need to know which section we are in
                 if (curLine.startsWith("New_Entity")) {
                     section++;
+
                 } else {
                     //Split the Line into the unique fields as shown in the New_Entity line
                     String[] parts = curLine.split("\",\"");
@@ -76,7 +77,6 @@ public class Database {
                                 getActor(Integer.parseInt(parts[0])).addFilm(film);
                             } catch (Exception e) {
                                 System.out.println(e);
-                                System.out.println("Here");
                             }
                             break;
                         case 5: //New_Entity: "director_id","movie_id"
@@ -101,17 +101,16 @@ public class Database {
                             break;
                     }
                 }
-
+                count++;
             }
-            //System.out.println("You have " + users.getSize() + " users");
-            System.out.println(films.getFilm(6978).getGenre());
-
+            sc.close();
         } catch (Exception e) {
             System.out.println("Error loading Database : " + e);
             e.printStackTrace();
             System.out.println("Exiting...");
             System.exit(-1);
         }
+
         System.out.println("Loaded Database successfully :)\n");
 
     }
@@ -132,37 +131,48 @@ public class Database {
         films.addElement(id, film);
     }
 
-    public PersonStorage<Actor> getActors() {
+    PersonStorage<Actor> getActors() {
         return actors;
     }
 
-    public PersonStorage<Director> getDirectors() {
+    PersonStorage<Director> getDirectors() {
         return directors;
     }
 
-    public PersonStorage<User> getUsers() {
+    PersonStorage<User> getUsers() {
         return users;
     }
 
-    public FilmStorage getFilms() {
+    FilmStorage getFilms() {
         return films;
     }
 
 
-    public Actor getActor(Integer id) {
+    Actor getActor(Integer id) {
         return actors.getPerson(id);
     }
 
-    public Director getDirector(Integer id) {
+    Actor getActor(String name) {
+        for (Map.Entry<Integer, Actor> entry: actors.getMap().entrySet()) {
+            if(entry.getValue().getName().equals(name))return entry.getValue();
+        }
+        return null;
+    }
+
+    Director getDirector(Integer id) {
         return directors.getPerson(id);
     }
 
-    public User getUser(Integer id) {
+    User getUser(Integer id) {
         return users.getPerson(id);
     }
 
-    public User getCurUser() {
-        return curUser;
+    User getCurUser() {
+        return this.curUser;
+    }
+
+    void setCurUser(User user){
+        curUser=user;
     }
 
     void login(String username) {
@@ -188,7 +198,7 @@ public class Database {
     private void saveFile() {
         try {
             //File file=new File("movieproject.db");
-            BufferedWriter writer = new BufferedWriter(new FileWriter("movieproject.db"));
+            BufferedWriter writer = new BufferedWriter(new FileWriter("movieproject.db",StandardCharsets.UTF_8));
             writer.write("New_Entity: \"actor_id\",\"actor_name\"\n");
             for (Map.Entry<Integer, Actor> entry : actors.getMap().entrySet()) {
                 writer.write("\"" + entry.getKey() + "\",\"" + entry.getValue().getName() + "\"\n");
@@ -208,9 +218,9 @@ public class Database {
                 }
             }
             writer.write("New_Entity: \"director_id\",\"movie_id\"\n");
-            for (Map.Entry<Integer, Director> entry : directors.getMap().entrySet()) {
-                for (Film film : entry.getValue().getFilms()) {
-                    writer.write("\"" + entry.getKey() + "\",\"" + film.getId() + "\"\n");
+            for (Map.Entry<Integer, Film> entry : films.getMap().entrySet()) {
+                for (Director director : entry.getValue().getDirectors()) {
+                    writer.write("\"" + director.getId() + "\",\"" + entry.getKey() + "\"\n");
                 }
             }
             writer.write("New_Entity: \"user_name\",\"rating\",\"movie_id\"\n");
@@ -226,42 +236,75 @@ public class Database {
         }
     }
 
-    //TODO: Algorithm for film recommendation
-    TreeMap<Film,Float> recommendFilm() {
-        TreeMap<Film,Float> usersLike = new TreeMap<>();
-        TreeMap<User, Integer> similarUsers = new TreeMap<>();
-        for (Map.Entry<Integer, Float> ratings : curUser.getRatings().entrySet()) {
-            if (ratings.getValue() >= 3) {
-                for (Map.Entry<Integer, Float> goodFilmRatings : films.getFilm(ratings.getKey()).getUserRatings().entrySet())
-                    if (!(curUser.getId().equals(goodFilmRatings.getKey())) && Math.abs(ratings.getValue() - goodFilmRatings.getValue()) <= 1) // this skips the rating if we are looking at the current user, or if the user is not similar enough
+    /*Gives the user a list of 100 film recommendations based on the Ratings he gave.
+    * If the user didn't like any movie, the recommendations are based on IMDB scores.
+    * Otherwise, each film gets a weight based on highness and number of ratings for this film by similar users(who judged films similar to the users)
+    * Films the User already rated are excluded, since its presumed he already saw those films.
+    * @return : a List of films, sorted descending by there "likeablility" score
+    * */
+    ArrayList<Film> recommendFilm() {
+        ArrayList<Film> foundFilms=new ArrayList<>();
+        ArrayList<Integer> recommendations = new ArrayList<>();
+        TreeMap<Integer, Float> usersLike = new TreeMap<>();
+        TreeMap<Integer, Integer> similarUsers = new TreeMap<>(); //Users by ID, Weight
+
+        for (Map.Entry<Integer, Float> rating : curUser.getRatings().entrySet()) { //rating : <MoiveID, Rating>
+            if (rating.getValue() >= 3) {
+                for (Map.Entry<Integer, Float> goodFilmRatings : films.getFilm(rating.getKey()).getUserRatings().entrySet()) // <UserID, Rating>
+                    if (!(curUser.getId().equals(goodFilmRatings.getKey())) && Math.abs(rating.getValue() - goodFilmRatings.getValue()) <= 1) // this skips the rating if we are looking at the current user, or if the user is not similar enough
                     {
 
-                        if (similarUsers.get(users.getPerson(goodFilmRatings.getKey())) == null) {
-                            similarUsers.put(users.getPerson(goodFilmRatings.getKey()), 1);
+                        if (similarUsers.get(goodFilmRatings.getKey()) == null) {
+                            similarUsers.put(goodFilmRatings.getKey(), 1);
                         } else {
-                            similarUsers.put(users.getPerson(goodFilmRatings.getKey()), similarUsers.get(users.getPerson(goodFilmRatings.getKey())) + 1);
+                            similarUsers.put(goodFilmRatings.getKey(), similarUsers.get(goodFilmRatings.getKey()) + 1);
                         }
                     }
             }
         }
-        /*for (Map.Entry<User, Integer> ratings : similarUsers.entrySet()) {
-            ratings.getKey().getRatings().forEach((filmId, rating) ->
+
+        for (Map.Entry<Integer, Integer> ratings : similarUsers.entrySet()) {
+            users.getPerson(ratings.getKey()).getRatings().forEach((filmId, rating) ->  //rating= previously assigned weight based on similarity to the User
             {
-                if (Math.abs(rating - curUser.getRating(filmId)) <= 1) {
-                    usersLike.put(films.getFilm(filmId),ratings.getValue()*rating);
+                if (rating >= 3 && !(curUser.getRatings().containsKey(filmId))) {
+                    if (usersLike.get(filmId) == null)
+                        usersLike.put(filmId, ratings.getValue() * rating);
+                    else {
+                        usersLike.put(filmId, usersLike.get(filmId) + (ratings.getValue() * rating));
+                    }
                 }
             });
-        }*/
-        return usersLike;
-    }
-/*        for(
-    Film film:userLikes)
+        } //We now have a map with Films and Weights that determine how much the user will like the film.
 
-    {
-        for (Map.Entry<Integer, Float> ratings : film.getUserRatings()) {
-            if ()
+        usersLike.forEach((id, rat) -> {
+            usersLike.put(id, usersLike.get(id) + films.getFilm(id).getImdbRating()); //IMDB is twice as much as our rating, so it will have more impact on films not a lot of users rated!
+        });
+
+        if(similarUsers.size()==0){ //If there were no users that are similar, base only on imdb rating
+            for (Film entry : films.getMap().values()) {
+                usersLike.put(entry.getId(),entry.getImdbRating()*entry.getNumRatings());
+            }
         }
-    }*/
+        Map<Float, List<Integer>> help = new TreeMap<>(Collections.reverseOrder());
+        for (Map.Entry<Integer, Float> entry : usersLike.entrySet()) {
+            List<Integer> l = help.get(entry.getValue());
+            if (l == null)
+                help.put(entry.getValue(), l = new ArrayList<Integer>());
+            l.add(entry.getKey());
+        }
+        for (List<Integer> filmList : help.values()) {
+            if (recommendations.size() + filmList.size() < 100)
+                recommendations.addAll(filmList);
+            else {
+                recommendations.addAll(filmList.subList(0, (recommendations.size() + filmList.size()) - 99));
+                break;
+            }
+        }
+        for (Integer recommendation: recommendations) {
+            foundFilms.add(films.getFilm(recommendation));
+        }
+        return foundFilms;
+    }
 
 
     void close() {

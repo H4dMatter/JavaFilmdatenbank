@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 
-public class Director extends Person {
+ class Director extends Person {
     private ArrayList<Film> films ;
 
 
@@ -10,10 +10,10 @@ public class Director extends Person {
          films = new ArrayList<>();
     }
 
-    public ArrayList<Film> getFilms() {
+     ArrayList<Film> getFilms() {
         return films;
     }
-    public void addFilm(Film film) {
+     void addFilm(Film film) {
         films.add(film);
     }
 }

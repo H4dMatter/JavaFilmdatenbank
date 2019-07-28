@@ -1,0 +1,211 @@
+@startuml
+
+title __SRC's Class Diagram__\n
+
+
+    class Actor {
+        - films : ArrayList<Film>
+        ~ Actor()
+        ~ addFilm()
+        ~ getFilms()
+    }
+
+  
+
+
+    class Database {
+        - actors : PersonStorage<Actor>
+        - directors : PersonStorage<Director>
+        - users : PersonStorage<User>
+        -films : FilmStorage<Film>
+        -curUser : User
+        ~ Database()
+        ~ close()
+        ~ getActor()
+        ~ getActor()
+        ~ getActors()
+        ~ getCurUser()
+        ~ getDirector()
+        ~ getDirectors()
+        ~ getFilms()
+        ~ getUser()
+        ~ getUsers()
+        ~ loadData()
+        ~ login()
+        ~ recommendFilm()
+        ~ setCurUser()
+        - addElement()
+        - addElement()
+        - addElement()
+        - addElement()
+        - saveFile()
+    }
+
+  
+
+
+    class Director {
+        - films : ArrayList<Film>
+        ~ Director()
+        ~ addFilm()
+        ~ getFilms()
+    }
+
+  
+
+
+    class Film {
+        - cast : ArrayList<Actor>
+        - desc : String
+        - directors : ArrayList<Director>
+        - genre : ArrayList<String>
+        - id : int
+        - imdbRating : float
+        - numRatings : int
+        - releaseDate : String
+        - title : String
+        - userRatings : TreeMap<Integer, Float>
+        + compareTo()
+        ~ Film()
+        ~ addActor()
+        ~ addDirector()
+        ~ addGenre()
+        ~ addUserRating()
+        ~ getCast()
+        ~ getDesc()
+        ~ getDirectors()
+        ~ getGenre()
+        ~ getId()
+        ~ getImdbRating()
+        ~ getNumRatings()
+        ~ getReleaseDate()
+        ~ getTitle()
+        ~ getUserRatings()
+        ~ printDetails()
+    }
+
+  
+
+
+    class FilmStorage {
+        - map : TreeMap<Integer, Film>
+        ~ FilmStorage()
+        ~ addElement()
+        ~ getFilm()
+        ~ getMap()
+        + search()
+    }
+
+  
+
+
+    class Main {
+        {static} - db : Database
+        {static} + main()
+        {static} - loginMenu()
+        {static} - mainMenu()
+        {static} - showFilmsMenu()
+    }
+
+  
+
+
+    abstract class Person {
+        - id : Integer
+        - name : String
+        ~ Person()
+        ~ getId()
+        ~ getName()
+        ~ setId()
+        ~ setName()
+    }
+
+  
+
+
+    class PersonStorage {
+        - map : TreeMap<Integer, T>
+        + search()
+        ~ PersonStorage()
+        ~ addElement()
+        ~ getMap()
+        ~ getPerson()
+        ~ getSize()
+    }
+
+  
+
+
+    interface Searchable {
+        {abstract} + search()
+    }
+
+  
+
+
+    class StaticMode {
+        - db:Database
+        - allFilmsWithScore : Map<Film, Integer>
+        - recommendations : ArrayList<Film>
+        ~ StaticMode()
+        ~ filterByActors()
+        ~ filterByDirectors()
+        ~ filterByFilms()
+        ~ filterByGenres()
+        ~ filterParameter()
+        ~ getRecommendations()
+    }
+
+
+
+
+    abstract class Test {
+        {static} - args1 : String[]
+        {static} - args2 : String[]
+        {static} - args3 : String[]
+        {static} ~ test()
+    }
+
+  
+
+
+    class User {
+        - ratings : TreeMap<Integer, Float>
+        + User()
+        + User()
+        + compareTo()
+        + getRating()
+        ~ addRating()
+        ~ getRatings()
+    }
+
+  
+
+  Actor -up-|> Person
+  Database o-- User : curUser
+  Database "1" *-- "1" FilmStorage : films
+  Database "1" *-- "3" PersonStorage : actors,directors,users
+  Database "1" <-- "1" Main
+  Actor "1..*" o-o "1..*" Film
+  Director "1..*" o-o "1..*" Film
+  User "1..*" o--o "0..*" Film
+  Main "1" *--> "0..1" Test
+  Main <-- StaticMode
+  Director -up-|> Person
+  Film .up.|> java.lang.Comparable
+  FilmStorage .up.|> Searchable
+  FilmStorage "1" o-- "*" Film: saves
+  PersonStorage .up.|> Searchable
+  PersonStorage "1" o-- "*" Person
+  StaticMode "1" --> "1" Database
+  StaticMode "3" <--"1" Test:creates
+  User .up.|> java.lang.Comparable
+  User -up-|> Person
+
+
+
+right footer
+
+endfooter
+
+@enduml
